@@ -1,26 +1,62 @@
 [
     {
         "id": "1",
-        "name": "Soto Bening / Porsi",
-        "price": 10000,
-        "image": "sotobening.jpg"
+        "name": "Pecel Lele + Nasi / Porsi",
+        "price": 16000,
+        "image": "pecellelenasi.jpg"
     },
     {
         "id": "2",
-        "name": "Telur Puyuh / Tusuk",
-        "price": 6000,
-        "image": "telurpuyuh.jpg"
+        "name": "Pecel Ayam + Nasi / Porsi",
+        "price": 18000,
+        "image": "pecelayamnasi.jpg"
     },
     {
         "id": "3",
-        "name": "Sate Kikil / Tusuk",
-        "price": 3000,
-        "image": "kikil.jpg"
+        "name": "Pecel Ayam / Pc",
+        "price": 13000,
+        "image": "ayam.jpg"
     },
     {
         "id": "4",
-        "name": "Tempe Goreng / Pc",
+        "name": "Pecel Lele / Pc",
+        "price": 11000,
+        "image": "lele.jpg"
+    },
+    {
+        "id": "5",
+        "name": "Ati Ampela / Pc",
+        "price": 4000,
+        "image": "atiampela.jpg"
+    },
+    {
+        "id": "6",
+        "name": "Nasi / Pc",
+        "price": 5000,
+        "image": "nasi.jpg"
+    },
+    {
+        "id": "7",
+        "name": "Usus / Pc",
+        "price": 1000,
+        "image": "usus.jpg"
+    },
+    {
+        "id": "8",
+        "name": "Tahu / Pc",
+        "price": 1000,
+        "image": "tahu.jpg"
+    },
+    {
+        "id": "9",
+        "name": "Tempe / Pc",
         "price": 1000,
         "image": "tempegoreng.jpg"
+    },
+    {
+        "id": "10",
+        "name": "Kulit / Pc",
+        "price": 1000,
+        "image": "kulit.jpg"
     }
 ]
