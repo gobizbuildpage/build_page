@@ -97,7 +97,7 @@ a {
 
 .category-section h2 {
     font-size: 28px;
-    color: #333;
+    color: #fafafa;
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -148,7 +148,7 @@ a {
     padding: 8px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(239, 235, 235, 0.5);
     color: #fff;
 }
 
@@ -283,3 +283,25 @@ a {
     filter: none; /* Menghilangkan blur pada gambar saat hover */
     transition: filter 0.3s; /* Transisi untuk efek hover */
 }
+
+.search-bar {
+    position: relative;
+    width: 400px; /* Lebar ditambah menjadi 400px, sesuaikan sesuai kebutuhan */
+}
+
+.search-bar i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 6px 10px 6px 35px; /* Tinggi dikurangi dengan padding atas dan bawah */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+

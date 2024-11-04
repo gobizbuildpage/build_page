@@ -6,6 +6,8 @@
     <title>Logic Coffee - Kopinya Mahasiswa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
 
@@ -14,8 +16,10 @@
         <div class="header-content">
             <span class="logo">Logic Coffee</span>
             <div class="search-bar">
-                <input type="text" placeholder="Cari di Logic Coffee...">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari kopi...">
             </div>
+            
             <nav class="nav">
                 <a href="#header">Home</a>
                 <a href="/homepage/menu.html">Menu</a>
@@ -36,31 +40,33 @@
     </section>
 
     <!-- Categories Section -->
-    <div class="category-section">
-        <h2>Category</h2>
-        <section class="categories">
-            <div class="category">
-                <img src="bg/v60.jpg" alt="Great Service">
-                <h3>HOT</h3>
-                <button>View More</button>
-            </div>
-            <div class="category">
-                <img src="bg/americano.jpg" alt="Delicious Coffee">
-                <h3>ICE</h3>
-                <button>View More</button>
-            </div>
-            <div class="category">
-                <img src="bg/tubruk.jpg" alt="Best Beans">
-                <h3>NOT COFFEE</h3>
-                <button>View More</button>
-            </div>
-            <div class="category">
-                <img src="bg/tubruk.jpg" alt="Best Beans">
-                <h3>DESSERT</h3>
-                <button>View More</button>
-            </div>
-        </section>
-    </div>
+    <!-- Categories Section -->
+<div class="category-section">
+    <h2>Category</h2>
+    <section class="categories">
+        <div class="category">
+            <img src="bg/v60.jpg" alt="Hot Drinks">
+            <h3>HOT</h3>
+            <a href="/users/menu.html?category=hot"><button>View More</button></a>
+        </div>
+        <div class="category">
+            <img src="bg/americano.jpg" alt="Cold Drinks">
+            <h3>ICE</h3>
+            <a href="/users/menu.html?category=cold"><button>View More</button></a>
+        </div>
+        <div class="category">
+            <img src="bg/tubruk.jpg" alt="Non-Coffee">
+            <h3>NOT COFFEE</h3>
+            <a href="/users/menu.html?category=noncoffee"><button>View More</button></a>
+        </div>
+        <div class="category">
+            <img src="bg/tubruk.jpg" alt="Desserts">
+            <h3>DESSERT</h3>
+            <a href="/users/menu.html?category=dessert"><button>View More</button></a>
+        </div>
+    </section>
+</div>
+
 
     <!-- About Us Section -->
     <section class="about" id="about"> <!-- ID ditambahkan di sini -->

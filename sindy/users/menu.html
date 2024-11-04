@@ -16,6 +16,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
+            background-color: #f5f5f5; /* Warna latar belakang untuk tampilan yang bersih */
         }
 
         /* Header */
@@ -39,10 +40,23 @@
             font-weight: 600;
         }
 
+        .search-bar {
+            position: relative;
+        }
+
         .search-bar input {
-            padding: 5px;
+            padding: 8px 35px 8px 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 20px;
+            width: 200px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
         }
 
         .nav {
@@ -66,18 +80,56 @@
             text-align: center;
         }
 
+        .menu-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
         .menu-item {
-            margin: 20px 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 200px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
         }
 
         .menu-item img {
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            height: auto;
             border-radius: 10px;
+            margin-bottom: 10px;
         }
 
         .menu-item h3 {
             margin: 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item .price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4CAF50;
         }
 
         /* Footer */
@@ -99,11 +151,11 @@
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-            display: none; /* Tersembunyi secara default */
+            display: none;
         }
 
         .scroll-to-top.show {
-            display: block; /* Tampilkan saat di-scroll */
+            display: block;
         }
     </style>
 </head>
@@ -115,6 +167,7 @@
             <span class="logo">Logic Coffee</span>
             <div class="search-bar">
                 <input type="text" placeholder="Cari di Logic Coffee...">
+                <i class="fas fa-search"></i>
             </div>
             <nav class="nav">
                 <a href="index.html">Home</a>
@@ -129,25 +182,31 @@
     <!-- Menu Section -->
     <div class="menu-section">
         <h2>Our Menu</h2>
-        <div class="menu-item">
-            <img src="bg/americano.jpg" alt="Americano">
-            <h3>Americano</h3>
-            <p>Delicious americano with a rich flavor.</p>
-        </div>
-        <div class="menu-item">
-            <img src="bg/v60.jpg" alt="V60 Coffee">
-            <h3>V60 Coffee</h3>
-            <p>Specially brewed coffee using the V60 method.</p>
-        </div>
-        <div class="menu-item">
-            <img src="bg/tubruk.jpg" alt="Tubruk Coffee">
-            <h3>Tubruk Coffee</h3>
-            <p>Traditional Indonesian coffee brewed with love.</p>
-        </div>
-        <div class="menu-item">
-            <img src="bg/dessert.jpg" alt="Dessert">
-            <h3>Dessert</h3>
-            <p>Sweet treats to complement your coffee.</p>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="bg/americano.jpg" alt="Americano">
+                <h3>Americano</h3>
+                <p>Delicious americano with a rich flavor.</p>
+                <p class="price">$15.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="bg/v60.jpg" alt="V60 Coffee">
+                <h3>V60 Coffee</h3>
+                <p>Specially brewed coffee using the V60 method.</p>
+                <p class="price">$18.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="bg/tubruk.jpg" alt="Tubruk Coffee">
+                <h3>Tubruk Coffee</h3>
+                <p>Traditional Indonesian coffee brewed with love.</p>
+                <p class="price">$12.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="bg/dessert.jpg" alt="Dessert">
+                <h3>Dessert</h3>
+                <p>Sweet treats to complement your coffee.</p>
+                <p class="price">$10.00</p>
+            </div>
         </div>
     </div>
 
