@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Coffee - Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: #4CAF50; /* Warna latar belakang header */
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .menu-item {
+            margin: 20px 0;
+        }
+
+        .menu-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Tersembunyi secara default */
+        }
+
+        .scroll-to-top.show {
+            display: block; /* Tampilkan saat di-scroll */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <span class="logo">Logic Coffee</span>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari di Logic Coffee...">
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="#">Menu</a>
+                <a href="#about">About Us</a>
+                <a href="#footer">Contact</a>
+                <a href="#" class="cart-icon">🛒</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <div class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-item">
+            <img src="bg/americano.jpg" alt="Americano">
+            <h3>Americano</h3>
+            <p>Delicious americano with a rich flavor.</p>
+        </div>
+        <div class="menu-item">
+            <img src="bg/v60.jpg" alt="V60 Coffee">
+            <h3>V60 Coffee</h3>
+            <p>Specially brewed coffee using the V60 method.</p>
+        </div>
+        <div class="menu-item">
+            <img src="bg/tubruk.jpg" alt="Tubruk Coffee">
+            <h3>Tubruk Coffee</h3>
+            <p>Traditional Indonesian coffee brewed with love.</p>
+        </div>
+        <div class="menu-item">
+            <img src="bg/dessert.jpg" alt="Dessert">
+            <h3>Dessert</h3>
+            <p>Sweet treats to complement your coffee.</p>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" title="Back to Top">⬆️</button>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <p>&copy; 2024 Logic Coffee | All rights reserved</p>
+        <p>Follow Us: <a href="#">Facebook</a> | <a href="https://www.instagram.com/logic_coffeee/">Instagram</a> | <a href="#">Twitter</a></p>
+    </footer>
+
+    <!-- JavaScript for Scroll-to-Top Button -->
+    <script>
+        // Scroll to Top Button
+        const scrollTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

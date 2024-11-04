@@ -10,17 +10,17 @@
 <body>
 
     <!-- Header Section -->
-    <header class="header">
+    <header class="header"id="header">
         <div class="header-content">
             <span class="logo">Logic Coffee</span>
             <div class="search-bar">
                 <input type="text" placeholder="Cari di Logic Coffee...">
             </div>
             <nav class="nav">
-                <a href="index.html">Home</a>
+                <a href="#header">Home</a>
                 <a href="/homepage/menu.html">Menu</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
+                <a href="#about">About Us</a> <!-- Tautan mengarah ke bagian About Us -->
+                <a href="#footer">Contact</a>
                 <a href="#" class="cart-icon">🛒</a>
             </nav>
         </div>
@@ -36,23 +36,34 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="categories">
-        <div class="category">
-            <h3>Great Service</h3>
-            <p>Experience our quick and friendly service.</p>
-        </div>
-        <div class="category">
-            <h3>Delicious Coffee</h3>
-            <p>Handcrafted coffee for the best taste.</p>
-        </div>
-        <div class="category">
-            <h3>Best Beans</h3>
-            <p>Sourced from the finest farms.</p>
-        </div>
-    </section>
+    <div class="category-section">
+        <h2>Category</h2>
+        <section class="categories">
+            <div class="category">
+                <img src="bg/v60.jpg" alt="Great Service">
+                <h3>HOT</h3>
+                <button>View More</button>
+            </div>
+            <div class="category">
+                <img src="bg/americano.jpg" alt="Delicious Coffee">
+                <h3>ICE</h3>
+                <button>View More</button>
+            </div>
+            <div class="category">
+                <img src="bg/tubruk.jpg" alt="Best Beans">
+                <h3>NOT COFFEE</h3>
+                <button>View More</button>
+            </div>
+            <div class="category">
+                <img src="bg/tubruk.jpg" alt="Best Beans">
+                <h3>DESSERT</h3>
+                <button>View More</button>
+            </div>
+        </section>
+    </div>
 
     <!-- About Us Section -->
-    <section class="about">
+    <section class="about" id="about"> <!-- ID ditambahkan di sini -->
         <div class="about-content">
             <div class="about-text">
                 <h2>About Us</h2>
@@ -65,11 +76,46 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials" style="background-image: url('./bg/biji.jpg'); background-size: contain; background-position: center; color: white; text-align: center; padding: 100px 20px;">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p>"Logic Coffee is my go-to place for studying! The coffee is amazing and the atmosphere is perfect."</p>
+                <span>- Sarah L.</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"I love the selection of drinks here. Always something new to try!"</p>
+                <span>- Andi M.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" title="Back to Top">⬆️</button>
+
     <!-- Footer Section -->
-    <footer class="footer">
+    <footer class="footer"id="footer">
         <p>&copy; 2024 Logic Coffee | All rights reserved</p>
-        <p>Follow Us: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+        <p>Follow Us: <a href="">Facebook</a> | <a href="https://www.instagram.com/logic_coffeee/">Instagram</a> | <a href="#">Twitter</a></p>
     </footer>
 
+    <!-- JavaScript for Scroll-to-Top Button -->
+    <script>
+        // Scroll to Top Button
+        const scrollTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
