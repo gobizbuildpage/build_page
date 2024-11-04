@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasakan Ambu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./bg/favicon.ico" type="image/x-icon">
+
+    <!-- Meta Tags for Open Graph -->
+    <meta property="og:title" content="Pasakan Ambu" />
+    <meta property="og:description"
+        content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!" />
+    <meta property="og:image" content="./bg/gambar.jpg" />
+    <meta property="og:url" content="./page" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pasakan Ambu" />
+
+    <!-- Meta Tags for Twitter (Optional) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pasakan Ambu">
+    <meta name="twitter:description"
+        content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!">
+    <meta name="twitter:image" content="./page/bg/gambar.jpg">
+</head>
+
+<body>
+    <header class="header">
+        <img src="./bg/banner.jpg" alt="Banner" class="banner-image">
+    </header>
+
+    <div class="rating-container">
+        <div id="storeInfo" class="store-info">
+            <div class="store-details">
+                <h1>Pasakan Ambu, Sarijadi</h1>
+                <p id="storeAddress">Jl. Sariasih No.54. Sarijadi, Bandung</p>
+            </div>
+            <div id="ratingContainer" class="rating-box">
+                <h3 id="storeRating">4.9 ⭐</h3>
+                <p>1rb ratings</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari menu...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+        <h2>Form Pemesanan</h2>
+        <div id="menuGrid" class="menu-grid">
+            <!-- Elemen menu akan diisi oleh JavaScript -->
+        </div>
+
+        <div class="total-container">
+            <h2>Total: Rp <span id="totalPrice">0</span></h2>
+            <div class="payment-method">
+                <label for="paymentSelect">Pilih Metode Pembayaran:</label>
+                <select id="paymentSelect">
+                    <option value="bankTransfer">Transfer Bank</option>
+                    <option value="cashOnDelivery">Bayar di Tempat</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h3>Pesanan Anda:</h3>
+            <ul id="orderList"></ul>
+        </div>
+
+        <div class="button-container">
+            <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Kirim Pesanan via WhatsApp
+            </a>
+        </div>
+    </main>
+
+    <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <h2>Masukkan Informasi Anda</h2>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" placeholder="Masukkan nama Anda">
+            <label for="whatsapp">Nomor WhatsApp:</label>
+            <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp">
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" placeholder="Masukkan alamat Anda">
+            <button id="buttonsimpaninfouser">Simpan</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">jual.in.my.id</div>
+            </div>
+            <p>Disediakan oleh Platform Jualin</p>
+            <p>Isi Menu dan harga merupakan tangung jawab tenant | <a href="#">Laporkan Penyalahgunaan</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

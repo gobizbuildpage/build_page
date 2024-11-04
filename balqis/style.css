@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;600&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Signika', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    /* Membuat sisi header membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Menambahkan bayangan */
+}
+
+.banner-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+    /* Membuat sisi banner membulat */
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff; /* Warna latar belakang */
+    margin: 20px auto; /* Margin untuk center */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+    border-radius: 10px; /* Sudut membulat */
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 10px;
+    /* Mengatur gap antara baris dan kolom */
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-footer {
+    display: flex;
+    flex-direction: column;
+    /* Ubah tata letak menjadi kolom */
+    align-items: center;
+    /* Atur agar konten berada di tengah */
+    justify-content: center;
+}
+
+.price {
+    margin-bottom: 10px;
+    /* Beri jarak antara harga dan kuantitas */
+    font-size: 16px;
+    /* Sesuaikan ukuran font jika diperlukan */
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.qty-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qty-btn:hover {
+    background-color: #ccc;
+}
+
+.quantity-controls input[type="number"] {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 5px;
+    height: 40px;
+}
+
+.quantity-controls input[type="number"]::-webkit-outer-spin-button,
+.quantity-controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.total-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.total-container h2 {
+    color: #d9534f;
+    font-size: 1.5em;
+}
+
+#orderList {
+    padding: 0 20px;
+    /* Menambahkan padding kiri dan kanan */
+    margin-top: 20px;
+}
+
+#orderList li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.whatsapp-button:hover {
+    background-color: #20b358;
+}
+
+.modal {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    z-index: 1000; /* Atur supaya tampil di atas */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    pointer-events: auto; /* Pastikan konten modal bisa diklik */
+    text-align: center;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.site-footer {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.footer-logo-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #4caf50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-content p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-content a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+
+.footer-content a:hover {
+    color: #d9534f;
+    border-bottom: 1px solid #d9534f;
+}
+
+.box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+button {
+    background-color: #84B8C6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #66A1B0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+input, select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    outline-color: #84B8C6;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.order-summary {
+    text-align: center;
+    margin-bottom: 2em; /* Jarak antara Pesanan Anda dan Metode Pembayaran */
+}
+
+.payment-method {
+    margin: 1em 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    display: flex; /* Mengubah ke flexbox */
+    align-items: center; /* Vertikal center */
+    flex-direction: column; /* Atur sebagai kolom */
+    text-align: center;
+    gap: 1em;
+}
+
+.payment-method label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.payment-method select {
+    width: auto; /* Sesuaikan lebar dengan konten */
+    min-width: 120px; /* Lebar minimum untuk select */
+    padding: 0.4em; /* Padding kecil */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.payment-method select:hover {
+    background-color: #e0e0e0;
+    border-color: #888;
+}
+
+.payment-method select:focus {
+    outline: none;
+    border-color: #84B8C6; /* Warna border saat fokus */
+    box-shadow: 0 0 5px rgba(132, 184, 198, 0.5); /* Bayangan saat fokus */
+}
+
+.button-container {
+    margin-left: 10px; /* Jarak antara select dan tombol */
+}
+
+button {
+    background-color: #84B8C6;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Padding disesuaikan */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px; /* Ukuran font tombol */
+}
+
+button:hover {
+    background-color: #66A1B0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo-icon {
+    background-color: #DE8F5F; 
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    display: inline-block;
+    width: max-content; /* Menyesuaikan lebar dengan teks */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center; /* Vertical center */
+}
+
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: #25D366; /* Hijau WhatsApp */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    width: max-content;
+}
+
+.whatsapp-button i {
+    margin-right: 8px; /* Jarak antara ikon dan teks */
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#searchInput {
+    padding: 7px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    width: 300px; 
+}
+
+#searchButton {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #DE8F5F;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    outline: none;
+}
+
+#searchButton:hover {
+    background-color: #FFCF9D;
+}
+
+.menu-grid .menu-item {
+    transition: transform 0.3s ease; /* Menambahkan efek transisi untuk animasi yang lebih halus */
+}
+
+.menu-grid .menu-item:hover {
+    transform: scale(1.05); /* Memperbesar elemen sedikit saat di-hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan efek bayangan untuk menonjolkan elemen */
+}
+
+/* Non-hover effect for search results */
+.search-result:hover {
+    transform: none;
+    box-shadow: none;
+}
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000; /* Atur supaya tampil di atas */
+}
+
+.menu-card {
+    width: 250px; /* Sesuaikan dengan lebar yang diinginkan */
+    min-height: 350px; /* Pastikan tinggi minimum yang sama untuk semua kartu */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Jarak antar kartu */
+    justify-content: center; /* Pusatkan isi kontainer */
+    padding: 20px; /* Ruang dalam */
+    background-color: #f8f8f8; /* Warna latar belakang */
+    border: 1px solid #ddd; /* Garis border */
+    margin: 20px auto; /* Margin atas dan bawah, rata tengah */
+    width: 90%; /* Atau lebar sesuai dengan container menu */
+    max-width: 600px; /* Lebar maksimum */
+    justify-content: space-between; /* Spasi antara elemen */
+    align-items: center; /* Vertically center items */
+}
+
+.menu-card img {
+    width: 100%; /* Mengatur lebar gambar sesuai kartu */
+    height: 200px; /* Tetapkan tinggi tetap */
+    object-fit: cover; /* Mengisi frame gambar dengan crop */
+    border-radius: 8px; /* Opsional: tambahkan radius untuk membuat sudut melengkung */
+}
+
+.menu-card h3 {
+    text-align: center;
+    font-size: 1.2em; /* Sesuaikan ukuran */
+    height: 50px; /* Batasi tinggi heading agar seragam */
+}
+
+/* Styling dasar untuk modal */
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.btn-tambah {
+    background-color: green; /* Mengubah warna latar belakang menjadi hijau */
+    color: white; /* Mengubah warna teks menjadi putih */
+    border: none; /* Menghapus border default */
+    padding: 10px 15px; /* Menambahkan padding untuk tombol */
+    cursor: pointer; /* Mengubah kursor saat hover */
+    border-radius: 5px; /* Memberikan sudut membulat pada tombol */
+    transition: background-color 0.3s; /* Efek transisi saat hover */
+}
+
+.btn-tambah:hover {
+    background-color: darkgreen; /* Mengubah warna saat hover */
+}
+
+#ratingContainer {
+    background-color: #fff; /* Warna latar belakang kotak */
+    border: 1px solid #ddd; /* Garis border */
+    padding: 10px; /* Ruang dalam kotak */
+    border-radius: 8px; /* Sudut yang membulat */
+    text-align: center; /* Teks di tengah */
+    width: 100px; /* Lebar kotak */
+}
+
+#storeRating {
+    font-size: 24px; /* Ukuran font untuk rating */
+    font-weight: bold; /* Tebal */
+    color: #333; /* Warna teks */
+    margin: 0; /* Menghilangkan margin default */
+}
+
+.store-info {
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    justify-content: space-between; /* Spasi antara elemen */
+    align-items: center; /* Menjaga item agar berada di tengah vertikal */
+}
+
+.store-details {
+    flex-grow: 1; /* Membiarkan elemen ini tumbuh untuk mengisi ruang */
+    max-width: 70%; /* Membatasi lebar maksimum untuk alamat */
+}
+
+.rating-box {
+    padding: 10px; /* Ruang dalam kotak rating */
+    border: 1px solid #ddd; /* Garis border */
+    border-radius: 8px; /* Sudut membulat untuk kotak rating */
+    text-align: center; /* Teks di tengah */
+    background-color: #f8f8f8; /* Warna latar belakang kotak rating */
+    width: 100px; /* Lebar kotak rating */
+    margin-left: 20px; /* Jarak antara alamat dan rating */
+}
+
+.rating-container {
+    background-color: #f8f8f8; /* Warna latar belakang untuk rating */
+    padding: 20px; /* Ruang dalam untuk rating */
+    margin: 20px auto; /* Margin untuk center */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+    border-radius: 10px; /* Sudut membulat */
+    max-width: 1200px; /* Lebar maksimum untuk rating */
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
