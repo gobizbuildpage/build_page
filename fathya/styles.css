@@ -214,6 +214,13 @@ h2 {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    object-fit: cover;
+    height: 250px; /* Sesuaikan tinggi sesuai kebutuhan */
+    width: 100%;
+}
+
+.total-summary {
+    display:none;
 }
 
 .menu-footer {
