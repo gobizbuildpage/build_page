@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "name": "Choco Avocado",
+        "price": 15000,
+        "image": "avocado.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Choco Sweet",
+        "price": 15000,
+        "image": "coco.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Dragon Fruit Smooties",
+        "price": 15000,
+        "image": "dragon.jpg"
+    },
+    {
+        "id": "4",
+        "name": "Manggo Thai",
+        "price": 15000,
+        "image": "manggo.jpg"
+    },
+    {
+        "id": "5",
+        "name": "Sago Mango",
+        "price": 17000,
+        "image": "sago.jpg"
+    },
+    {
+        "id": "6",
+        "name": "Salad Fruit",
+        "price": 20000,
+        "image": "salad.jpg"
+    },
+    {
+        "id": "7",
+        "name": "Smoothies Strawberry",
+        "price": 15000,
+        "image": "strawbery.jpg"
+    }
+]

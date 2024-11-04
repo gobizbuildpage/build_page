@@ -1,0 +1,305 @@
+* * {
+    box-sizing: border-box; /* Pastikan padding dan border termasuk dalam ukuran elemen */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #000;
+}
+
+.header {
+    width: 100%;
+    background-color: #2c2c2c; 
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 20px; /* Membuat sisi header membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+.banner-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 20px; /* Membuat sisi banner membulat */
+}
+
+.main-container {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #2c2c2c; 
+    margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
+    border-radius: 20px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FDA521; 
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 item per baris */
+    gap: 20px; /* Jarak antar item */
+    margin-bottom: 20px;
+}
+
+
+.menu-item {
+    background-color: black; 
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.menu-item:hover {
+    transform: translateY(-5px); /* Efek mengangkat saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan saat di-hover */
+}
+
+.menu-item h3 {
+    font-size: 20px; /* Ukuran font judul lebih kecil */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #FDA521; /* Warna judul untuk kontras */
+}
+
+.menu-item img {
+    width: 100%; /* Mengatur lebar gambar untuk memenuhi kotak */
+    height: 300px; /* Menetapkan tinggi gambar */
+    object-fit: cover; /* Memastikan gambar terpotong dan tetap proporsional */
+    border-radius: 5px; /* Jika ingin sudut gambar melengkung */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-item img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.menu-item p {
+    font-size: 15px; /* Ukuran font harga lebih kecil */
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #FFD700; /* Warna harga agar lebih terlihat */
+}
+
+.menu-footer {
+    display: flex;
+    flex-direction: column; /* Ubah tata letak menjadi kolom */
+    align-items: center; /* Atur agar konten berada di tengah */
+    justify-content: center;
+}
+
+.price {
+    margin-bottom: 10px; /* Beri jarak antara harga dan kuantitas */
+    font-size: 16px; /* Sesuaikan ukuran font jika diperlukan */
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.quantity-box {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+.quantity-controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDA521;
+    color: #1e1e1e;
+    border: none;
+    width: 25px; /* Lebar tombol lebih kecil */
+    height: 25px; /* Tinggi tombol lebih kecil */
+    font-size: 15px; /* Ukuran ikon */
+    font-weight: bold;
+    border-radius: 8px; /* Sudut membulat tetapi tidak terlalu bulat */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 0;
+}
+
+.quantity-controls button:hover {
+    background-color: #ffc15e;
+}
+
+.quantity-controls input[type="number"] {
+    width: 45px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 5px;
+    height: 25px;
+}
+
+.quantity-controls input[type="number"]::-webkit-outer-spin-button,
+.quantity-controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.menu-item h3 i,
+.menu-item p i {
+    color: white;
+    margin-right: 5px; /* Atur jarak sesuai kebutuhan Anda */
+}
+
+
+.quantity-controls button i {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.payment-method select {
+    padding: 1px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.total-container h2 {
+    color: #d9534f;
+    font-size: 1.5em;
+}
+
+#orderList {
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    margin-top: 20px;
+}
+
+#orderList li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.whatsapp-button {
+    background-color: #28a745;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.site-footer {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.footer-logo-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #4caf50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-content p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+
+.footer-content a:hover {
+    color: #d9534f;
+    border-bottom: 1px solid #d9534f;
+}
