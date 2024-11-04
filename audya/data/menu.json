@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Soto Bening / Porsi",
+        "price": 10000,
+        "image": "sotobening.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Telur Puyuh / Tusuk",
+        "price": 6000,
+        "image": "telurpuyuh.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Sate Kikil / Tusuk",
+        "price": 3000,
+        "image": "kikil.jpg"
+    },
+    {
+        "id": "4",
+        "name": "Tempe Goreng / Pc",
+        "price": 1000,
+        "image": "tempegoreng.jpg"
+    }
+]
