@@ -7,6 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -31,41 +38,57 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('./bg/bg2.jpg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px;">
-        <div class="hero-content">
-            <h1>Logic Coffee</h1>
-            <p>Kopinya Mahasiswa</p>
-            <button class="order-btn">Order Now</button>
+  <!-- Hero Section -->
+<section class="hero">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./bg/bg3.jpeg" class="d-block w-100" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img src="./bg/bg2.jpeg" class="d-block w-100" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img src="./bg/bg3.jpeg" class="d-block w-100" alt="Third slide">
+            </div>
         </div>
-    </section>
+    </div>
+    <div class="hero-content">
+        <h1>Logic Coffee</h1>
+        <p>Kopinya Mahasiswa</p>
+        <button class="order-btn">Order Now</button>
+    </div>
+</section>
+
 
     <!-- Categories Section -->
     <!-- Categories Section -->
-<div class="category-section">
-    <h2>Category</h2>
-    <section class="categories">
-        <div class="category">
-            <img src="bg/v60.jpg" alt="Hot Drinks">
-            <h3>HOT</h3>
-            <a href="/users/menu.html?category=hot"><button>View More</button></a>
-        </div>
-        <div class="category">
-            <img src="bg/americano.jpg" alt="Cold Drinks">
-            <h3>ICE</h3>
-            <a href="/users/menu.html?category=cold"><button>View More</button></a>
-        </div>
-        <div class="category">
-            <img src="bg/tubruk.jpg" alt="Non-Coffee">
-            <h3>NOT COFFEE</h3>
-            <a href="/users/menu.html?category=noncoffee"><button>View More</button></a>
-        </div>
-        <div class="category">
-            <img src="bg/tubruk.jpg" alt="Desserts">
-            <h3>DESSERT</h3>
-            <a href="/users/menu.html?category=dessert"><button>View More</button></a>
-        </div>
-    </section>
-</div>
+    <div class="category-section">
+        <h2>Category</h2>
+        <section class="categories">
+            <div class="category">
+                <img src="bg/v60.jpg" alt="Hot Drinks">
+                <h3>HOT</h3>
+                <a href="/users/menu.html"><button>View More</button></a>
+            </div>
+            <div class="category">
+                <img src="bg/americano.jpg" alt="Cold Drinks">
+                <h3>ICE</h3>
+                <a href="menu.html?category=ice"><button>View More</button></a>
+            </div>
+            <div class="category">
+                <img src="bg/tubruk.jpg" alt="Non-Coffee">
+                <h3>NOT COFFEE</h3>
+                <a href="menu.html?category=noncoffee"><button>View More</button></a>
+            </div>
+            <div class="category">
+                <img src="bg/tubruk.jpg" alt="Desserts">
+                <h3>DESSERT</h3>
+                <a href="menu.html?category=dessert"><button>View More</button></a>
+            </div>
+        </section>
+    </div>
+    
 
 
     <!-- About Us Section -->
