@@ -13,7 +13,7 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
+    background-color: #254117; /* Ganti dengan warna hijau gelap */
     color: #e0e0e0;
 }
 a {
@@ -23,9 +23,9 @@ a {
 
 /* CSS untuk Header */
 .header {
-    background-color: #1a1a1a;
+    background-color: #254117; /* Ganti dengan warna hijau gelap */
     padding: 20px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #513B1C; /* Ganti dengan warna cokelat */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,21 +63,44 @@ a {
 
 /* Hero Section */
 .hero {
-    background-image: url('/bg/bg2.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 100px 20px;
-    text-align: center;
+    position: relative;
+    overflow: hidden; /* Mencegah overflow */
+    height: 70vh; /* Ubah tinggi sesuai keinginan (misalnya 70vh) */
 }
+
+.carousel-inner {
+    height: 100%; /* Memastikan carousel menggunakan tinggi penuh */
+}
+
+.carousel-item {
+    height: 100%; /* Mengatur tinggi setiap item carousel */
+    background-size: cover; /* Memastikan gambar memenuhi area */
+    background-position: center; /* Memposisikan gambar di tengah */
+}
+
+/* Penyesuaian untuk konten di atas carousel */
+.hero-content {
+    position: absolute;
+    top: 50%; /* Memposisikan di tengah vertikal */
+    left: 50%; /* Memposisikan di tengah horizontal */
+    transform: translate(-50%, -50%); /* Mengatur posisi */
+    z-index: 10; /* Pastikan konten di atas carousel */
+    color: #fff; /* Warna teks */
+    text-align: center; /* Rata tengah */
+}
+
+
+
 .hero-content h1 {
     font-size: 48px;
     color: #e0e0e0;
 }
+
 .hero-content p {
     font-size: 24px;
     margin: 20px 0;
 }
+
 .order-btn {
     background-color: #b27d42;
     color: #fff;
@@ -87,6 +110,7 @@ a {
     cursor: pointer;
     border-radius: 5px;
 }
+
 
 /* Categories Section */
 .category-section {
@@ -155,7 +179,7 @@ a {
 /* About Us Section */
 .about {
     padding: 50px 20px;
-    background-color: #1a1a1a;
+    background-color: #254117; /* Ganti dengan warna hijau gelap */
 }
 
 .about-content {
@@ -216,7 +240,7 @@ a {
     display: block;
     margin-top: 10px;
     font-weight: bold;
-    color: #b27d42;
+    color: #b27d42; /* Ganti dengan warna cokelat */
 }
 
 /* Scroll to Top Button */
@@ -224,7 +248,7 @@ a {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #b27d42; /* Warna tombol */
+    background-color: #b27d42; /* Ganti dengan warna cokelat */
     color: #fff; /* Warna teks tombol */
     border: none;
     border-radius: 5px;
@@ -249,12 +273,12 @@ a {
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: #1a1a1a;
+    background-color: #254117; /* Ganti dengan warna hijau gelap */
     color: #e0e0e0;
 }
 .footer a {
     margin: 0 10px;
-    color: #b27d42;
+    color: #b27d42; /* Ganti dengan warna cokelat */
 }
 .footer a:hover {
     text-decoration: underline; /* Garis bawah saat hover */
@@ -302,6 +326,4 @@ a {
     padding: 6px 10px 6px 35px; /* Tinggi dikurangi dengan padding atas dan bawah */
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
-
