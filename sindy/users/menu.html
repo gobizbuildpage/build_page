@@ -3,175 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logic Coffee - Menu</title>
+    <title>Menu - Logic Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Reset dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            background-color: #f5f5f5; /* Warna latar belakang untuk tampilan yang bersih */
-        }
-
-        /* Header */
-        .header {
-            background: #4CAF50; /* Warna latar belakang header */
-            color: white;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .search-bar {
-            position: relative;
-        }
-
-        .search-bar input {
-            padding: 8px 35px 8px 10px;
-            border: none;
-            border-radius: 20px;
-            width: 200px;
-        }
-
-        .search-bar i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #888;
-        }
-
-        .nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav a:hover {
-            color: #f1f1f1;
-        }
-
-        /* Menu Section */
-        .menu-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .menu-section h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-items: center;
-        }
-
-        .menu-item {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 200px;
-            text-align: center;
-            padding: 15px;
-            transition: transform 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .menu-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .menu-item h3 {
-            margin: 10px 0;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .menu-item p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .menu-item .price {
-            font-size: 16px;
-            font-weight: 600;
-            color: #4CAF50;
-        }
-
-        /* Footer */
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none;
-        }
-
-        .scroll-to-top.show {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
     <!-- Header Section -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="header-content">
             <span class="logo">Logic Coffee</span>
             <div class="search-bar">
-                <input type="text" placeholder="Cari di Logic Coffee...">
                 <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari kopi...">
             </div>
+            
             <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="#">Menu</a>
+                <a href="#header">Home</a>
+                <a href="/homepage/menu.html">Menu</a>
                 <a href="#about">About Us</a>
                 <a href="#footer">Contact</a>
                 <a href="#" class="cart-icon">🛒</a>
@@ -180,61 +32,63 @@
     </header>
 
     <!-- Menu Section -->
-    <div class="menu-section">
-        <h2>Our Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="bg/americano.jpg" alt="Americano">
-                <h3>Americano</h3>
-                <p>Delicious americano with a rich flavor.</p>
-                <p class="price">$15.00</p>
-            </div>
-            <div class="menu-item">
-                <img src="bg/v60.jpg" alt="V60 Coffee">
-                <h3>V60 Coffee</h3>
-                <p>Specially brewed coffee using the V60 method.</p>
-                <p class="price">$18.00</p>
-            </div>
-            <div class="menu-item">
-                <img src="bg/tubruk.jpg" alt="Tubruk Coffee">
-                <h3>Tubruk Coffee</h3>
-                <p>Traditional Indonesian coffee brewed with love.</p>
-                <p class="price">$12.00</p>
-            </div>
-            <div class="menu-item">
-                <img src="bg/dessert.jpg" alt="Dessert">
-                <h3>Dessert</h3>
-                <p>Sweet treats to complement your coffee.</p>
-                <p class="price">$10.00</p>
-            </div>
+    <section class="menu-section">
+        <h2>Our Special Menu</h2>
+        
+        <div id="menu-items">
+            <!-- Menu items will be dynamically displayed here based on the category -->
         </div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" title="Back to Top">⬆️</button>
+    </section>
 
     <!-- Footer Section -->
     <footer class="footer" id="footer">
         <p>&copy; 2024 Logic Coffee | All rights reserved</p>
-        <p>Follow Us: <a href="#">Facebook</a> | <a href="https://www.instagram.com/logic_coffeee/">Instagram</a> | <a href="#">Twitter</a></p>
     </footer>
 
-    <!-- JavaScript for Scroll-to-Top Button -->
+    <!-- JavaScript to filter menu based on category -->
     <script>
-        // Scroll to Top Button
-        const scrollTopBtn = document.querySelector('.scroll-to-top');
+        // Sample data for menu items (you can replace this with real data if available)
+        const menuData = [
+            { name: 'Espresso', category: 'hot' },
+            { name: 'Americano', category: 'hot' },
+            { name: 'Iced Latte', category: 'ice' },
+            { name: 'Iced Americano', category: 'ice' },
+            { name: 'Matcha Latte', category: 'noncoffee' },
+            { name: 'Chocolate', category: 'noncoffee' },
+            { name: 'Cheesecake', category: 'dessert' },
+            { name: 'Brownie', category: 'dessert' },
+        ];
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
+        // Function to get the URL parameter
+        function getCategoryFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('category');
+        }
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // Function to display menu items based on category
+        function displayMenuItems(category) {
+            const menuContainer = document.getElementById('menu-items');
+            menuContainer.innerHTML = '';
+
+            // Filter menuData based on the selected category
+            const filteredItems = menuData.filter(item => item.category === category);
+
+            // Display filtered items
+            filteredItems.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `<h3>${item.name}</h3>`;
+                menuContainer.appendChild(menuItem);
+            });
+        }
+
+        // Get category from URL and display items
+        const category = getCategoryFromUrl();
+        if (category) {
+            displayMenuItems(category);
+        } else {
+            document.getElementById('menu-items').innerHTML = '<p>Please select a category.</p>';
+        }
     </script>
 </body>
 </html>
