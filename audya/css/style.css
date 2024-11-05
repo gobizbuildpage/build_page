@@ -481,7 +481,7 @@ h3 {
 }
 
 .navbar-logo .logo-text:hover {
-    color: #fff; /* Ganti warna saat di-hover jika diinginkan */
+    color: #000; /* Ganti warna saat di-hover jika diinginkan */
 }
 
 
@@ -581,6 +581,58 @@ h3 {
     .navbar-menu {
         display: none;
     }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    font-family: 'Signika', sans-serif;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #008000; /* Warna hijau untuk judul */
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.hero-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #BED754; /* Hijau terang untuk tombol */
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #008000; /* Hijau tua saat di-hover */
+}
+
+.hero-image {
+    max-width: 45%;
+    text-align: center;
+}
+
+.image-warung {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Styling untuk tombol utama "Isi Informasi Pemesan" */
