@@ -431,102 +431,79 @@ h3 {
     /* Oranye lebih gelap untuk efek hover */
 }
 
+/* Navbar Styling */
 .navbar {
-    background-color: #a3d2ca;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffe0b2; /* Warna krem muda */
     padding: 10px 20px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    font-family: 'Signika', sans-serif;
+    border-bottom: 3px solid #cc6e0a; /* Warna oranye tua */
 }
 
 .navbar-logo {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Signika', sans-serif;
-}
-
-.navbar-logo:hover {
-    color: #333;
-}
-
-/* Tambahkan CSS untuk link "Form Pemesanan" */
-.navbar-link {
-    font-family: 'Signika', sans-serif;
-    color: white;
-    text-decoration: none;
-    /* Menghilangkan garis bawah */
-    font-weight: 600;
-    display: flex;
-    text-align: right;
-}
-
-.navbar-link:hover {
-    color: #333;
-    /* Warna sedikit lebih terang saat di-hover */
-}
-
-.navbar-search {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex: 1;
 }
 
-.form-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 2px; /* Jarak antara ikon dan teks */
+.navbar-logo .logo {
+    height: 50px;
+    margin-right: 10px;
 }
 
-#searchInput {
-    padding: 8px;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
-    width: 200px;
-    transition: width 0.4s ease-in-out;
+.navbar-logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #cc6e0a; /* Warna oranye tua */
 }
 
-#searchInput:focus {
-    width: 250px;
-    /* Lebar lebih besar saat fokus */
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-.navbar-search button {
-    padding: 8px 12px;
-    background-color: #b2dfdb;
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.navbar-menu li {
+    position: relative;
 }
 
-.navbar-search input[type="text"] {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    margin-right: 5px;
+.navbar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s;
 }
 
-.navbar-search button:hover {
-    background-color: #e74c3c;
-    /* Warna lebih gelap saat dihover */
+.navbar-menu a.active,
+.navbar-menu a:hover {
+    color: #cc6e0a; /* Warna oranye tua */
+}
+
+.navbar-menu a::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    background-color: #cc6e0a; /* Warna oranye tua */
+    bottom: -6px;
+    left: 10%;
+    border-radius: 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+    transform: scaleX(1);
+}
+
+/* Tambahan untuk responsif */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
 }
 
 /* Styling untuk tombol utama "Isi Informasi Pemesan" */
