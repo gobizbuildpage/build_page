@@ -433,13 +433,14 @@ h3 {
 
 /* Navbar Styling */
 .navbar {
-    background-color: #ffe0b2; /* Warna krem muda */
-    padding: 10px 20px;
+    background-color: #8b0000; 
+    padding: 15px;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'Signika', sans-serif;
-    border-bottom: 3px solid #cc6e0a; /* Warna oranye tua */
+    border-bottom: 3px solid #fff; 
 }
 
 .navbar-logo {
@@ -452,11 +453,18 @@ h3 {
     margin-right: 10px;
 }
 
-.navbar-logo span {
+.navbar-logo .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: #cc6e0a; /* Warna oranye tua */
+    color: #BED754;
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
 }
+
+.navbar-logo .logo-text:hover {
+    color: #fff; /* Ganti warna saat di-hover jika diinginkan */
+}
+
 
 .navbar-menu {
     list-style: none;
@@ -468,25 +476,44 @@ h3 {
     position: relative;
 }
 
-.navbar-menu a {
+/* Default style for links */
+.navbar-menu li a {
     text-decoration: none;
-    color: #333;
+    color: #BED754;
     font-size: 18px;
     padding: 10px;
-    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
 }
 
-.navbar-menu a.active,
-.navbar-menu a:hover {
-    color: #cc6e0a; /* Warna oranye tua */
+/* Default style for icons */
+.navbar-menu li a i {
+    margin-right: 5px;
+    font-size: 1rem;
+    color: #BED754;
+    transition: color 0.3s ease;
 }
 
+/* Hover effect for links and icons */
+.navbar-menu li a:hover,
+.navbar-menu li a:hover i {
+    color: white; /* Mengubah teks dan ikon menjadi putih saat di-hover */
+}
+
+/* Active link styling */
+.navbar-menu li a.active,
+.navbar-menu li a.active i {
+    color: white; /* Warna putih untuk elemen yang aktif */
+}
+
+/* Underline effect */
 .navbar-menu a::after {
     content: "";
     position: absolute;
     width: 80%;
     height: 4px;
-    background-color: #cc6e0a; /* Warna oranye tua */
+    background-color: #fff;
     bottom: -6px;
     left: 10%;
     border-radius: 50%;
