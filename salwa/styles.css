@@ -7,12 +7,12 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: #000;
+    background-color: #643215;
 }
 
 .header {
     width: 100%;
-    background-color: #2c2c2c; 
+    background-color: #5a2e1a; 
     padding: 10px 20px;
     text-align: center;
     border-radius: 20px; /* Membuat sisi header membulat */
@@ -29,7 +29,7 @@ body {
 .main-container {
     width: 100%;
     padding: 10px 20px;
-    background-color: #2c2c2c; 
+    background-color: #8b2932;
     margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
     border-radius: 20px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
@@ -38,7 +38,7 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #FDA521; 
+    color: white;
 }
 
 .menu-grid {
@@ -50,7 +50,7 @@ h2 {
 
 
 .menu-item {
-    background-color: black; 
+    background-color: rgb(31, 167, 160); 
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -69,7 +69,7 @@ h2 {
     font-size: 20px; /* Ukuran font judul lebih kecil */
     margin-bottom: 8px;
     font-weight: bold;
-    color: #FDA521; /* Warna judul untuk kontras */
+    color: #8b2932; /* Warna judul untuk kontras */
 }
 
 .menu-item img {
@@ -89,7 +89,7 @@ h2 {
     font-size: 15px; /* Ukuran font harga lebih kecil */
     font-weight: 600;
     margin-bottom: 12px;
-    color: #FFD700; /* Warna harga agar lebih terlihat */
+    color: #8b2932; /* Warna harga agar lebih terlihat */
 }
 
 .menu-footer {
@@ -112,7 +112,7 @@ h2 {
 }
 
 .quantity-box {
-    background-color: #f5f5f5;
+    background-color: #8b2932;
     color: #333;
     padding: 5px 15px;
     border-radius: 4px;
@@ -126,7 +126,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FDA521;
+    background-color: #8b2932;
     color: #1e1e1e;
     border: none;
     width: 25px; /* Lebar tombol lebih kecil */
@@ -140,14 +140,14 @@ h2 {
 }
 
 .quantity-controls button:hover {
-    background-color: #ffc15e;
+    background-color: #ff5e81;
 }
 
 .quantity-controls input[type="number"] {
     width: 45px;
     text-align: center;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #8b2932;
     border-radius: 5px;
     margin: 0 5px;
     height: 25px;
@@ -161,7 +161,7 @@ h2 {
 
 .menu-item h3 i,
 .menu-item p i {
-    color: white;
+    color: rgb(117, 19, 41);
     margin-right: 5px; /* Atur jarak sesuai kebutuhan Anda */
 }
 
@@ -191,7 +191,7 @@ h2 {
 }
 
 .total-container h2 {
-    color: #d9534f;
+    color: white;
     font-size: 1.5em;
 }
 
@@ -206,7 +206,7 @@ h2 {
 }
 
 .whatsapp-button {
-    background-color: #28a745;
+    background-color:  rgb(31, 167, 160); 
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -215,7 +215,7 @@ h2 {
 }
 
 .whatsapp-button:hover {
-    background-color: #218838;
+    background-color:  rgb(21, 119, 114); 
     transform: scale(1.05);
 }
 
@@ -277,7 +277,7 @@ h2 {
 .footer-logo-icon {
     width: 35px;
     height: 35px;
-    background-color: #4caf50;
+    background-color: rgb(31, 167, 160); 
     color: white;
     display: flex;
     justify-content: center;
