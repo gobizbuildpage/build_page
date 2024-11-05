@@ -25,9 +25,9 @@
     },
     {
         "id": "5",
-        "name": "Sago Mango",
-        "price": 17000,
-        "image": "sago.jpg"
+        "name": "Tiramisu Caramel Smoothies",
+        "price": 15000,
+        "image": "tiramisu.jpg"
     },
     {
         "id": "6",
@@ -40,5 +40,11 @@
         "name": "Smoothies Strawberry",
         "price": 15000,
         "image": "strawbery.jpg"
+    },
+    {
+        "id": "8",
+        "name": "Sago Matcha Strawberry",
+        "price": 15000,
+        "image": "matcha.jpg"
     }
 ]
