@@ -92,7 +92,7 @@
     <div id="userModal" class="modal">
       <div class="modal-content">
         <img src="./bg/banner.jpg" alt="" />
-        <h2>Masukkan Informasi Anda</h2>
+        <h2 id="modalTitle">Masukkan Informasi Anda</h2>
 
         <!-- Input Nama -->
         <div class="input-group">
@@ -110,7 +110,9 @@
           <input type="text" id="address" required>
           <label for="address" style="font-size: 16px;">Alamat</label>
       </div>
-        <button id="buttonsimpaninfouser">Simpan</button>
+        <button id="buttonsimpaninfouser" class="save-button">Simpan</button>
+
+        <button id="buttonbatalinfouser" class="cancel-button" style="display: none;">Batal</button>
       </div>
     </div>
 

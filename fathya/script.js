@@ -2,6 +2,7 @@ import { postJSON } from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js';
 import { onClick } from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js';
 
 onClick('buttonsimpaninfouser', saveUserInfo);
+onClick('buttonbatalinfouser', closeUserModal);
 
 document.addEventListener('DOMContentLoaded', function () {
     checkCookies();
@@ -17,6 +18,8 @@ function checkCookies() {
     const userAddress = getCookie("address");
 
     document.getElementById('userModal').style.display = userName && userWhatsapp && userAddress ? 'none' : 'flex';
+    document.getElementById('modalTitle').textContent = 'Masukkan Informasi Anda';
+    document.getElementById('buttonbatalinfouser').style.display = 'none'; // Hide "Batal" initially
 }
 
 function saveUserInfo() {
@@ -28,7 +31,7 @@ function saveUserInfo() {
         setCookie("name", name, 365);
         setCookie("whatsapp", whatsapp, 365);
         setCookie("address", address, 365);
-        document.getElementById('userModal').style.display = 'none';
+        closeUserModal();
     } else {
         alert("Silakan masukkan semua informasi.");
     }
@@ -51,13 +54,22 @@ function getCookie(cname) {
     return "";
 }
 
-// Saat klik edit, isi form modal dengan nilai dari cookie
+// Open modal with edit title when editing information
 document.getElementById('editUserInfoButton').addEventListener('click', function () {
     document.getElementById('name').value = getCookie("name") || '';
     document.getElementById('whatsapp').value = getCookie("whatsapp") || '';
     document.getElementById('address').value = getCookie("address") || '';
+    document.getElementById('modalTitle').textContent = 'Ubah Informasi Anda';
     document.getElementById('userModal').style.display = 'flex';
+    document.getElementById('buttonbatalinfouser').style.display = 'inline-block'; // Show "Batal" button
 });
+
+// Close modal function
+function closeUserModal() {
+    document.getElementById('userModal').style.display = 'none';
+    document.getElementById('modalTitle').textContent = 'Masukkan Informasi Anda';
+    document.getElementById('buttonbatalinfouser').style.display = 'none'; // Hide "Batal" button after closing
+}
 
 // Fungsi renderMenu, showQuantityControls, changeQuantity, calculateTotal, dll.
 

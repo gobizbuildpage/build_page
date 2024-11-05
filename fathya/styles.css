@@ -129,15 +129,35 @@ input:valid + label {
     border-radius: 5px;
     font-size: 16px;
     color: #fff;
-    background-color: #ff6600;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.modal-content button:hover {
+.save-button {
+    background-color: #ff6600;
+
+}
+
+.save-button:hover {
     background-color: #cc4400;
 }
+
+/* Style for the "Batal" button */
+.cancel-button {
+    background-color: #dc3545; /* Red color for danger */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
 
 
 .header {
