@@ -1,4 +1,6 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     /* Pastikan padding dan border termasuk dalam ukuran elemen */
 }
@@ -433,19 +435,36 @@ h3 {
 
 /* Navbar Styling */
 .navbar {
-    background-color: #8b0000; 
-    padding: 15px;
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-family: 'Signika', sans-serif;
-    border-bottom: 3px solid #fff; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #fff;
 }
 
 .navbar-logo {
     display: flex;
     align-items: center;
+    flex-basis: 30%; /* Memberikan lebih banyak ruang untuk logo */
+    margin-right: 1rem; /* Menambah jarak antara logo dan menu */
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.3rem; /* Kurangi ukuran font jika terlalu besar */
+    font-weight: bold;
+    color: #008000; /* Hijau */
+    text-decoration: none;
+    white-space: nowrap; /* Ini akan mencegah teks pecah ke baris baru */
 }
 
 .navbar-logo .logo {
@@ -469,19 +488,21 @@ h3 {
 .navbar-menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-basis: 40%; /* Memberikan ruang lebih kecil untuk menu tengah */
 }
 
 .navbar-menu li {
     position: relative;
 }
 
-/* Default style for links */
 .navbar-menu li a {
     text-decoration: none;
-    color: #BED754;
+    color: #333;
+    font-weight: 500;
     font-size: 18px;
-    padding: 10px;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
@@ -495,16 +516,8 @@ h3 {
     transition: color 0.3s ease;
 }
 
-/* Hover effect for links and icons */
-.navbar-menu li a:hover,
-.navbar-menu li a:hover i {
-    color: white; /* Mengubah teks dan ikon menjadi putih saat di-hover */
-}
-
-/* Active link styling */
-.navbar-menu li a.active,
-.navbar-menu li a.active i {
-    color: white; /* Warna putih untuk elemen yang aktif */
+.navbar-menu li a:hover, .navbar-menu li a.active {
+    color: #008000;
 }
 
 /* Underline effect */
@@ -513,7 +526,7 @@ h3 {
     position: absolute;
     width: 80%;
     height: 4px;
-    background-color: #fff;
+    background-color: #008000;
     bottom: -6px;
     left: 10%;
     border-radius: 50%;
@@ -521,9 +534,46 @@ h3 {
     transition: transform 0.3s ease;
 }
 
-.navbar-menu a:hover::after,
-.navbar-menu a.active::after {
+.navbar-menu a:hover::after, .navbar-menu a.active::after {
     transform: scaleX(1);
+}
+
+/* Search bar styling */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    flex-basis: 30%; /* Memberikan ruang yang pas untuk search bar */
+    justify-content: flex-end;
+}
+
+.search-input {
+    padding: 0.5rem;
+    border: 2px solid #008000;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 150px;
+    transition: width 0.3s ease;
+}
+
+.search-input:focus {
+    width: 200px;
+}
+
+.search-button {
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-button i {
+    font-size: 1rem;
+}
+
+.search-button:hover {
+    background-color: #e60000;
 }
 
 /* Tambahan untuk responsif */
