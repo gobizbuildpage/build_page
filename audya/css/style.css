@@ -635,6 +635,83 @@ h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Section Tentang Kami */
+.about-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f0f8f5;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Section Kategori Menu */
+.menu-section {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.menu-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+/* Grid container for menu categories */
+.menu-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.category-item h3 {
+    font-size: 24px;
+    color: #2e7d32;
+    margin: 10px 0;
+}
+
+.category-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
 /* Styling untuk tombol utama "Isi Informasi Pemesan" */
 button {
     background-color: #b2dfdb; /* Warna dasar, seperti coral */
