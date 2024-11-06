@@ -13,7 +13,7 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #254117; /* Ganti dengan warna hijau gelap */
+    background-color: #da9341; /* Ganti dengan warna hijau gelap */
     color: #e0e0e0;
 }
 a {
@@ -23,9 +23,9 @@ a {
 
 /* CSS untuk Header */
 .header {
-    background-color: #254117; /* Ganti dengan warna hijau gelap */
+    background-color:#C27D3D; /* Ganti dengan warna hijau gelap */
     padding: 20px;
-    border-bottom: 1px solid #513B1C; /* Ganti dengan warna cokelat */
+    border-bottom: 1px solid #ffffff; /* Ganti dengan warna cokelat */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,7 +102,7 @@ a {
 }
 
 .order-btn {
-    background-color: #b27d42;
+    background-color: #C27D3D;
     color: #fff;
     padding: 10px 30px;
     border: none;
@@ -116,12 +116,12 @@ a {
 .category-section {
     text-align: center;
     padding: 20px;
-    background-color: #262626; /* Sesuaikan dengan latar belakang yang diinginkan */
+    background-color: #ffffff; /* Sesuaikan dengan latar belakang yang diinginkan */
 }
 
 .category-section h2 {
     font-size: 28px;
-    color: #fafafa;
+    color: #000000;
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -179,7 +179,7 @@ a {
 /* About Us Section */
 .about {
     padding: 50px 20px;
-    background-color: #254117; /* Ganti dengan warna hijau gelap */
+    background-color: #ffffff; /* Ganti dengan warna hijau gelap */
 }
 
 .about-content {
@@ -273,12 +273,12 @@ a {
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: #254117; /* Ganti dengan warna hijau gelap */
+    background-color: #C27D3D; /* Ganti dengan warna hijau gelap */
     color: #e0e0e0;
 }
 .footer a {
     margin: 0 10px;
-    color: #b27d42; /* Ganti dengan warna cokelat */
+    color: #ffffff; /* Ganti dengan warna cokelat */
 }
 .footer a:hover {
     text-decoration: underline; /* Garis bawah saat hover */

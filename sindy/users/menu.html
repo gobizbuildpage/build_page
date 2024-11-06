@@ -8,6 +8,131 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Container for all menu items */
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        /* Style for Menu Item Cards */
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin: 15px;
+            width: 250px; /* Fixed width for all cards */
+            height: 350px; /* Fixed height for consistency */
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Card hover effect */
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for Menu Item Image */
+        .menu-item img {
+            width: 100%; /* Ensure image takes the full width */
+            height: 180px; /* Fixed height for images */
+            object-fit: contain; /* Ensure image is fully visible */
+            border-radius: 5px;
+        }
+
+        /* Style for Menu Item Text */
+        .menu-item h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Style for Price Text */
+        .menu-item .price {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Style for Add to Cart Button */
+        .menu-item button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .menu-item button:hover {
+            background-color: #555;
+        }
+
+        /* Filter Button and Dropdown */
+        .menu-category-buttons {
+            position: absolute;
+            right: 30px;
+            top: 100px;
+            z-index: 10;
+        }
+
+        .filter-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .menu-category-buttons:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content button {
+            padding: 12px 16px;
+            background-color: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,11 +146,11 @@
             </div>
             
             <nav class="nav">
-                <a href="index.html">Home</a>
+                <a href="/index.html">Home</a>
                 <a href="menu.html">Menu</a>
-                <a href="#about">About Us</a>
+                <a href="/index.html">About Us</a>
                 <a href="#footer">Contact</a>
-                <a href="#" class="cart-icon">🛒</a>
+                <a href="cart.html" class="cart-icon">🛒</a>
             </nav>
         </div>
     </header>
@@ -34,11 +159,16 @@
     <section class="menu-section">
         <h2>Our Menu</h2>
         <div class="menu-category-buttons">
-            <button onclick="filterMenu('hot')">Hot</button>
-            <button onclick="filterMenu('ice')">Ice</button>
-            <button onclick="filterMenu('noncoffee')">Non-Coffee</button>
-            <button onclick="filterMenu('dessert')">Dessert</button>
-            <button onclick="filterMenu('all')">All</button>
+            <button class="filter-btn">
+                <i class="fas fa-filter"></i> Filter
+            </button>
+            <div class="dropdown-content">
+                <button onclick="filterMenu('hot')">Hot</button>
+                <button onclick="filterMenu('ice')">Ice</button>
+                <button onclick="filterMenu('noncoffee')">Non-Coffee</button>
+                <button onclick="filterMenu('dessert')">Dessert</button>
+                <button onclick="filterMenu('all')">All</button>
+            </div>
         </div>
 
         <div class="menu-items" id="menuItems">
@@ -56,26 +186,34 @@
         // Menu data with images added to each item
         const menuData = {
             hot: [
-                { name: "Hot Latte", description: "Rich espresso with steamed milk", price: "20,000", image: "path/to/hot-latte.jpg" },
-                { name: "Hot Americano", description: "Bold and smooth black coffee", price: "18,000", image: "path/to/hot-americano.jpg" },
-                { name: "Hot Chocolate", description: "Creamy hot chocolate with a hint of vanilla", price: "22,000", image: "path/to/hot-chocolate.jpg" }
+                { name: "Hot Latte", description: "Rich espresso with steamed milk", price: "20,000", image: "/bg/sm.png" },
+                { name: "Hot Americano", description: "Bold and smooth black coffee", price: "18,000", image: "/bg/sm.png" },
+                { name: "Hot Chocolate", description: "Creamy hot chocolate with a hint of vanilla", price: "22,000", image: "/bg/sm.png" }
             ],
             ice: [
-                { name: "Iced Latte", description: "Chilled espresso with milk", price: "22,000", image: "path/to/iced-latte.jpg" },
-                { name: "Iced Mocha", description: "Coffee and chocolate, served cold", price: "24,000", image: "path/to/iced-mocha.jpg" },
-                { name: "Iced Lemon Tea", description: "Refreshing tea with lemon", price: "15,000", image: "path/to/iced-lemon-tea.jpg" }
+                { name: "Iced Latte", description: "Chilled espresso with milk", price: "22,000", image: "/bg/sm.png" },
+                { name: "Iced Mocha", description: "Coffee and chocolate, served cold", price: "24,000", image: "/bg/sm.png" },
+                { name: "Iced Lemon Tea", description: "Refreshing tea with lemon", price: "15,000", image: "/bg/sm.png" }
             ],
             noncoffee: [
-                { name: "Lemon Tea", description: "Fresh tea with a hint of lemon", price: "12,000", image: "path/to/lemon-tea.jpg" },
-                { name: "Orange Juice", description: "Freshly squeezed orange juice", price: "15,000", image: "path/to/orange-juice.jpg" },
-                { name: "Green Tea", description: "Pure and refreshing green tea", price: "14,000", image: "path/to/green-tea.jpg" }
+                { name: "Lemon Tea", description: "Fresh tea with a hint of lemon", price: "12,000", image: "/bg/sm.png" },
+                { name: "Orange Juice", description: "Freshly squeezed orange juice", price: "15,000", image: "/bg/sm.png" },
+                { name: "Green Tea", description: "Pure and refreshing green tea", price: "14,000", image: "/bg/sm.png" }
             ],
             dessert: [
-                { name: "Chocolate Cake", description: "Rich and moist chocolate cake", price: "30,000", image: "path/to/chocolate-cake.jpg" },
-                { name: "Cheesecake", description: "Creamy cheesecake with a graham crust", price: "35,000", image: "path/to/cheesecake.jpg" },
-                { name: "Brownies", description: "Fudgy brownies with walnuts", price: "25,000", image: "path/to/brownies.jpg" }
+                { name: "Chocolate Cake", description: "Rich and moist chocolate cake", price: "30,000", image: "/bg/sm.png" },
+                { name: "Cheesecake", description: "Creamy cheesecake with a graham crust", price: "35,000", image: "/bg/sm.png" },
+                { name: "Brownies", description: "Fudgy brownies with walnuts", price: "25,000", image: "/bg/sm.png" }
             ]
         };
+
+        // Function to truncate description if it's longer than 20 characters
+        function truncateDescription(description, limit = 20) {
+            if (description.length > limit) {
+                return description.substring(0, limit) + '...'; // Truncate and add '...'
+            }
+            return description; // Return the original description if it's short enough
+        }
 
         // Function to generate HTML for menu items based on category
         function renderMenu(category = 'all') {
@@ -90,14 +228,27 @@
                         menuItem.innerHTML = `
                             <img src="${item.image}" alt="${item.name}" class="menu-item-image">
                             <h3>${item.name}</h3>
-                            <p>${item.description}</p>
-                            <p>Price: ${item.price}</p>
+                            <p>${truncateDescription(item.description)}</p>
+                            <p class="price">Price: ${item.price}</p>
+                            <button onclick="addToCart('${item.name}', '${item.price}', '${item.image}')">Add to Cart</button>
                         `;
                         menuItemsContainer.appendChild(menuItem);
                     });
                 }
             }
         }
+
+        // Function to handle adding items to cart
+       // Function to handle adding items to cart and redirecting to cart.html
+function addToCart(name, price, image) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, image });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Redirect to cart.html after adding item to cart
+    window.location.href = 'cart.html'; // Ganti halaman ke cart.html
+}
+
 
         // Initial render and filter menu function
         function filterMenu(category) {
