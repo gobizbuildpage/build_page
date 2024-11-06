@@ -1,16 +1,14 @@
-import { postJSON } from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js';  // Sesuaikan path sesuai dengan lokasi file Anda
-import {onClick} from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js';
+import { postJSON } from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js';
+import { onClick } from 'https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/element.js';
 
+onClick('buttonsimpaninfouser', saveUserInfo);
+onClick('buttonbatalinfouser', closeUserModal);
 
-onClick('buttonsimpaninfouser',saveUserInfo);
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     checkCookies();
     fetch('./data/menu.json')
         .then(response => response.json())
-        .then(data => {
-            renderMenu(data);
-        })
+        .then(data => renderMenu(data))
         .catch(error => console.error('Error loading menu:', error));
 });
 
@@ -19,11 +17,9 @@ function checkCookies() {
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
 
-    if (!userName || !userWhatsapp || !userAddress) {
-        document.getElementById('userModal').style.display = 'flex';
-    } else {
-        document.getElementById('userModal').style.display = 'none';
-    }
+    document.getElementById('userModal').style.display = userName && userWhatsapp && userAddress ? 'none' : 'flex';
+    document.getElementById('modalTitle').textContent = 'Masukkan Informasi Anda';
+    document.getElementById('buttonbatalinfouser').style.display = 'none'; // Hide "Batal" initially
 }
 
 function saveUserInfo() {
@@ -35,7 +31,7 @@ function saveUserInfo() {
         setCookie("name", name, 365);
         setCookie("whatsapp", whatsapp, 365);
         setCookie("address", address, 365);
-        document.getElementById('userModal').style.display = 'none';
+        closeUserModal();
     } else {
         alert("Silakan masukkan semua informasi.");
     }
@@ -43,26 +39,39 @@ function saveUserInfo() {
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    document.cookie = `${cname}=${cvalue};expires=${d.toUTCString()};path=/`;
 }
 
 function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let c of ca) {
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length);
     }
     return "";
 }
+
+// Open modal with edit title when editing information
+document.getElementById('editUserInfoButton').addEventListener('click', function () {
+    document.getElementById('name').value = getCookie("name") || '';
+    document.getElementById('whatsapp').value = getCookie("whatsapp") || '';
+    document.getElementById('address').value = getCookie("address") || '';
+    document.getElementById('modalTitle').textContent = 'Ubah Informasi Anda';
+    document.getElementById('userModal').style.display = 'flex';
+    document.getElementById('buttonbatalinfouser').style.display = 'inline-block'; // Show "Batal" button
+});
+
+// Close modal function
+function closeUserModal() {
+    document.getElementById('userModal').style.display = 'none';
+    document.getElementById('modalTitle').textContent = 'Masukkan Informasi Anda';
+    document.getElementById('buttonbatalinfouser').style.display = 'none'; // Hide "Batal" button after closing
+}
+
+// Fungsi renderMenu, showQuantityControls, changeQuantity, calculateTotal, dll.
 
 function renderMenu(menuItems) {
     const menuGrid = document.getElementById('menuGrid');

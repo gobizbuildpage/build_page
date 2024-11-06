@@ -26,11 +26,59 @@
     <meta name="twitter:description"
         content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!">
     <meta name="twitter:image" content="./page/bg/gambar.jpg">
-</head>
 
-<body>
+    <style>
+        /* General style for top bar */
+        .top-bar {
+            background-color: #333;
+            font-size: 0.9rem;
+            padding: 10px 0;
+        }
+    
+        /* Styling link text and icons */
+        .top-bar a.nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+    
+        .top-bar a.nav-link:hover {
+            color: #ccc;
+        }
+    
+        .top-bar i {
+            margin-right: 5px;
+            font-size: 1rem;
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-bar .text-center {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    
+    <body>
+        <!-- Top Bar -->
+        <div class="container-fluid top-bar text-light py-2 d-none d-md-block">
+            <div class="row align-items-center">
+                <!-- Left Side Links -->
+                <div class="col-md-8 d-flex">
+                    <a class="nav-link text-light d-inline-block me-3" href="about.html">
+                        <i class="fa-solid fa-info-circle"></i> Tentang Kami
+                    </a>
+                    <a class="nav-link text-light" href="https://wa.me/+6283154664118" title="Bantuan">
+                        <i class="fa-solid fa-question-circle"></i> Bantuan
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+
     <header class="header">
-        <img src="./bg/banner.jpg" alt="Banner" class="banner-image">
+        <img src="./bg/bannernasgor1.png" alt="Banner" class="banner-image">
     </header>
 
     <div class="rating-container">
