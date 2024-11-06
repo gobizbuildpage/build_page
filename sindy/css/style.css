@@ -6,7 +6,7 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #254117; /* Dark green background */
+    background-color:#ffffff; /* Dark green background */
     color: #e0e0e0;
 }
 a {
@@ -16,9 +16,9 @@ a {
 
 /* CSS for Header */
 .header {
-    background-color: #254117;
+    background-color: #b27d42;
     padding: 20px;
-    border-bottom: 1px solid #513B1C;
+    border-bottom: 1px solid #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,7 +105,7 @@ a {
 .category-section {
     text-align: center;
     padding: 20px;
-    background-color: #262626;
+    background-color: #ffffff;
 }
 
 .category-section h2 {
@@ -130,7 +130,7 @@ a {
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    background-color: #333;
+    background-color: #ffffff;
 }
 
 .category img {
@@ -168,7 +168,7 @@ a {
 /* About Us Section */
 .about {
     padding: 50px 20px;
-    background-color: #254117;
+    background-color: #ffffff;
 }
 
 .about-content {
@@ -262,7 +262,7 @@ a {
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: #254117;
+    background-color: #b27d42;
     color: #e0e0e0;
 }
 
@@ -322,92 +322,184 @@ a {
 /* Menu Page Styling */
 .menu-section {
     padding: 50px 20px;
-    background-color: #2a2a2a;
-    color: #e0e0e0;
+    background-color:#fffefe;
+    color: #000000;
     text-align: center;
 }
 
 .menu-section h2 {
     font-size: 28px;
     margin-bottom: 30px;
-    color: #fafafa;
+    color: #000000;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.menu-category-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.menu-category-buttons button {
-    background-color: #b27d42;
-    color: #fff;
-    padding: 8px 20px;
+/* Style for filter button */
+.filter-btn {
+    background-color: #fff;
     border: none;
     font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
 }
 
-.menu-category-buttons button:hover {
-    background-color: #a36836;
+/* Style for filter button */
+.filter-btn {
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
 }
 
+/* Style for filter button */
+.filter-btn {
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+
+.filter-btn i {
+    font-size: 18px;
+}
+
+/* Menu Category Buttons Container (Positioned below navbar) */
+.menu-category-buttons {
+    position: absolute;
+    top: 80px; /* Adjusted for space below the navbar */
+    right: 20px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+/* Dropdown style */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.menu-category-buttons:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content button {
+    background-color: #fff;
+    border: none;
+    padding: 8px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/* Style for Menu Item */
+/* Container for all menu items */
 .menu-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
+/* Style for Menu Item Cards */
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Style for Menu Item Cards */
 .menu-item {
-    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 15px;
+    width: 200px; /* Reduced width for smaller cards */
+    height: 300px; /* Reduced height for smaller cards */
+    padding: 15px; /* Reduced padding */
+    background-color: #f9f9f9;
     border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    color: #e0e0e0;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.menu-item-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
+/* Card hover effect */
 .menu-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Style for Menu Item Image */
+.menu-item img {
+    width: 100%; /* Ensure image takes the full width */
+    height: 140px; /* Reduced height for image */
+    object-fit: contain; /* Ensure image is fully visible */
+    border-radius: 5px;
+}
 
+/* Style for Menu Item Text */
 .menu-item h3 {
-    font-size: 20px;
-    color: #fafafa;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    font-size: 16px; /* Reduced font size */
+    font-weight: 600;
 }
 
 .menu-item p {
-    font-size: 16px;
-    margin: 5px 0;
+    color: #666;
+    font-size: 13px; /* Reduced font size */
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.menu-item p:last-child {
+/* Style for Price Text */
+.menu-item .price {
+    font-size: 14px; /* Reduced font size */
     font-weight: bold;
-    color: #b27d42;
 }
 
-.menu-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+/* Style for Add to Cart Button */
+.menu-item button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 6px 12px; /* Reduced padding */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px; /* Reduced font size */
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.menu-item button:hover {
+    background-color: #555;
 }
 
 /* Responsive Styling */

@@ -48,7 +48,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-
 .menu-item {
     background-color: rgb(31, 167, 160); 
     padding: 15px;
@@ -164,7 +163,6 @@ h2 {
     color: rgb(117, 19, 41);
     margin-right: 5px; /* Atur jarak sesuai kebutuhan Anda */
 }
-
 
 .quantity-controls button i {
     font-size: 16px;
@@ -302,4 +300,46 @@ h2 {
 .footer-content a:hover {
     color: #d9534f;
     border-bottom: 1px solid #d9534f;
+}
+
+/* Menambah media query untuk memastikan tampilan simetris di perangkat mobile */
+@media screen and (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di perangkat kecil */
+        gap: 10px; /* Mengurangi jarak antar item */
+    }
+
+    .menu-item {
+        text-align: center; /* Menyusun konten di tengah */
+    }
+
+    .quantity-controls {
+        display: flex;
+        justify-content: center; /* Menyusun tombol dan input di tengah */
+    }
+
+    .quantity-controls button {
+        margin: 0 5px; /* Memberikan jarak antar tombol */
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center; /* Menyusun konten footer di tengah */
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1 kolom di perangkat sangat kecil */
+    }
+
+    .menu-item img {
+        width: 100%; /* Membuat gambar menu responsif */
+    }
+
+    .footer-content p {
+        font-size: 14px; /* Ukuran teks di footer lebih kecil */
+    }
 }
