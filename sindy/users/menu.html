@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Logic Coffee</title>
+    <title>Logic Coffee - Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -22,8 +21,8 @@
             </div>
             
             <nav class="nav">
-                <a href="#header">Home</a>
-                <a href="/homepage/menu.html">Menu</a>
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
                 <a href="#about">About Us</a>
                 <a href="#footer">Contact</a>
                 <a href="#" class="cart-icon">🛒</a>
@@ -33,62 +32,83 @@
 
     <!-- Menu Section -->
     <section class="menu-section">
-        <h2>Our Special Menu</h2>
-        
-        <div id="menu-items">
-            <!-- Menu items will be dynamically displayed here based on the category -->
+        <h2>Our Menu</h2>
+        <div class="menu-category-buttons">
+            <button onclick="filterMenu('hot')">Hot</button>
+            <button onclick="filterMenu('ice')">Ice</button>
+            <button onclick="filterMenu('noncoffee')">Non-Coffee</button>
+            <button onclick="filterMenu('dessert')">Dessert</button>
+            <button onclick="filterMenu('all')">All</button>
+        </div>
+
+        <div class="menu-items" id="menuItems">
+            <!-- Menu items will be generated here by JavaScript -->
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer" id="footer">
         <p>&copy; 2024 Logic Coffee | All rights reserved</p>
+        <p>Follow Us: <a href="#">Facebook</a> | <a href="https://www.instagram.com/logic_coffeee/">Instagram</a> | <a href="#">Twitter</a></p>
     </footer>
 
-    <!-- JavaScript to filter menu based on category -->
     <script>
-        // Sample data for menu items (you can replace this with real data if available)
-        const menuData = [
-            { name: 'Espresso', category: 'hot' },
-            { name: 'Americano', category: 'hot' },
-            { name: 'Iced Latte', category: 'ice' },
-            { name: 'Iced Americano', category: 'ice' },
-            { name: 'Matcha Latte', category: 'noncoffee' },
-            { name: 'Chocolate', category: 'noncoffee' },
-            { name: 'Cheesecake', category: 'dessert' },
-            { name: 'Brownie', category: 'dessert' },
-        ];
+        // Menu data with images added to each item
+        const menuData = {
+            hot: [
+                { name: "Hot Latte", description: "Rich espresso with steamed milk", price: "20,000", image: "path/to/hot-latte.jpg" },
+                { name: "Hot Americano", description: "Bold and smooth black coffee", price: "18,000", image: "path/to/hot-americano.jpg" },
+                { name: "Hot Chocolate", description: "Creamy hot chocolate with a hint of vanilla", price: "22,000", image: "path/to/hot-chocolate.jpg" }
+            ],
+            ice: [
+                { name: "Iced Latte", description: "Chilled espresso with milk", price: "22,000", image: "path/to/iced-latte.jpg" },
+                { name: "Iced Mocha", description: "Coffee and chocolate, served cold", price: "24,000", image: "path/to/iced-mocha.jpg" },
+                { name: "Iced Lemon Tea", description: "Refreshing tea with lemon", price: "15,000", image: "path/to/iced-lemon-tea.jpg" }
+            ],
+            noncoffee: [
+                { name: "Lemon Tea", description: "Fresh tea with a hint of lemon", price: "12,000", image: "path/to/lemon-tea.jpg" },
+                { name: "Orange Juice", description: "Freshly squeezed orange juice", price: "15,000", image: "path/to/orange-juice.jpg" },
+                { name: "Green Tea", description: "Pure and refreshing green tea", price: "14,000", image: "path/to/green-tea.jpg" }
+            ],
+            dessert: [
+                { name: "Chocolate Cake", description: "Rich and moist chocolate cake", price: "30,000", image: "path/to/chocolate-cake.jpg" },
+                { name: "Cheesecake", description: "Creamy cheesecake with a graham crust", price: "35,000", image: "path/to/cheesecake.jpg" },
+                { name: "Brownies", description: "Fudgy brownies with walnuts", price: "25,000", image: "path/to/brownies.jpg" }
+            ]
+        };
 
-        // Function to get the URL parameter
-        function getCategoryFromUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('category');
+        // Function to generate HTML for menu items based on category
+        function renderMenu(category = 'all') {
+            const menuItemsContainer = document.getElementById('menuItems');
+            menuItemsContainer.innerHTML = ''; // Clear existing content
+
+            for (const [cat, items] of Object.entries(menuData)) {
+                if (category === 'all' || category === cat) {
+                    items.forEach(item => {
+                        const menuItem = document.createElement('div');
+                        menuItem.classList.add('menu-item');
+                        menuItem.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}" class="menu-item-image">
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <p>Price: ${item.price}</p>
+                        `;
+                        menuItemsContainer.appendChild(menuItem);
+                    });
+                }
+            }
         }
 
-        // Function to display menu items based on category
-        function displayMenuItems(category) {
-            const menuContainer = document.getElementById('menu-items');
-            menuContainer.innerHTML = '';
-
-            // Filter menuData based on the selected category
-            const filteredItems = menuData.filter(item => item.category === category);
-
-            // Display filtered items
-            filteredItems.forEach(item => {
-                const menuItem = document.createElement('div');
-                menuItem.className = 'menu-item';
-                menuItem.innerHTML = `<h3>${item.name}</h3>`;
-                menuContainer.appendChild(menuItem);
-            });
+        // Initial render and filter menu function
+        function filterMenu(category) {
+            renderMenu(category);
         }
 
-        // Get category from URL and display items
-        const category = getCategoryFromUrl();
-        if (category) {
-            displayMenuItems(category);
-        } else {
-            document.getElementById('menu-items').innerHTML = '<p>Please select a category.</p>';
-        }
+        // Check URL parameter for category selection and initial render
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedCategory = urlParams.get('category') || 'all';
+        renderMenu(selectedCategory);
     </script>
+
 </body>
 </html>
