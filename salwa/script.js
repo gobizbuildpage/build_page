@@ -58,7 +58,8 @@ async function loadMenu() {
         const menuContainer = document.getElementById('menu-container');
         menuContainer.innerHTML = menuData.map(item => `
             <div class="menu-item">
-                <h3><i class="fas fa-utensils"></i> ${item.name}</h3>
+                <!-- Ganti ikon menjadi fa-martini-glass untuk minuman -->
+                <h3><i class="fas fa-martini-glass"></i> ${item.name}</h3>  <!-- Ikon untuk minuman -->
                 <img src="menu/${item.image}" alt="${item.name}">
                 <p><i class="fas fa-tag"></i> Rp${item.price.toLocaleString('id-ID')}</p>
                 <div class="quantity-controls">
@@ -72,6 +73,7 @@ async function loadMenu() {
         console.error('Gagal memuat menu:', error);
     }
 }
+
 
 // Fungsi untuk mengubah jumlah item
 window.changeQuantity = function(id, price, delta) {
