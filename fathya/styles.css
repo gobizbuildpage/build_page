@@ -429,7 +429,7 @@ h2 {
 }
 
 /* Style untuk opsi dalam dropdown */
-.payment-method select option {
+option {
     background-color: white; /* Latar belakang putih untuk opsi */
     color: #ff6600; /* Teks berwarna oren untuk opsi */
     border-radius: 5px;
