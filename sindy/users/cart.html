@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Logic Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+
+    <header>
+        <span class="logo">Logic Coffee</span>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="#footer">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+
+        <!-- Select All Checkbox -->
+        <div class="select-all-container">
+            <input type="checkbox" id="selectAll" onclick="toggleSelectAll()">
+            <label for="selectAll">Select All</label>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be generated here by JavaScript -->
+        </div>
+
+        <div class="cart-total">
+            <span class="total-label">Total:</span>
+            <span class="total-amount" id="totalAmount">Rp 0</span>
+        </div>
+
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        // Function to render cart items
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cartItemsContainer.innerHTML = ''; // Clear previous items
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p>Price: ${item.price}</p>
+                    </div>
+                    <div class="quantity">
+                        <button onclick="updateQuantity('${item.name}', 'decrease')">-</button>
+                        <input type="number" value="${item.quantity}" min="1" id="quantity_${item.name}" onchange="updateQuantity('${item.name}', 'manual')">
+                        <button onclick="updateQuantity('${item.name}', 'increase')">+</button>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="item-select" data-item="${item.name}" onchange="updateSelection()"> Select
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+
+                totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+            });
+
+            totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;
+        }
+
+        // Update item quantity
+        function updateQuantity(itemName, action) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.name === itemName);
+            if (!item) return;
+
+            if (action === 'increase') {
+                item.quantity += 1;
+            } else if (action === 'decrease' && item.quantity > 1) {
+                item.quantity -= 1;
+            } else if (action === 'manual') {
+                const newQuantity = document.getElementById(`quantity_${itemName}`).value;
+                item.quantity = parseInt(newQuantity) || 1;
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Remove item from cart
+        function removeFromCart(itemName) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const updatedCart = cart.filter(item => item.name !== itemName);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            renderCart();
+        }
+
+        // Handle Select All checkbox
+        function toggleSelectAll() {
+            const isChecked = document.getElementById('selectAll').checked;
+            const checkboxes = document.querySelectorAll('.item-select');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = isChecked;
+            });
+        }
+
+        // Handle individual selection
+        function updateSelection() {
+            const selectAllCheckbox = document.getElementById('selectAll');
+            const checkboxes = document.querySelectorAll('.item-select');
+            const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+            selectAllCheckbox.checked = selectedCheckboxes.length === checkboxes.length;
+        }
+
+        // Initial render
+        renderCart();
+    </script>
+</body>
+</html>
