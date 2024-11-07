@@ -74,21 +74,32 @@ function getCookie(cname) {
 
 function renderMenu(menuItems) {
     const menuGrid = document.getElementById('menuGrid');
+    menuGrid.innerHTML = ''; // Bersihkan elemen menuGrid sebelum menambahkan item baru
+
     menuItems.forEach(item => {
         const menuItem = document.createElement('div');
         menuItem.className = 'menu-item';
+        
+        // Struktur HTML untuk setiap item menu
         menuItem.innerHTML = `
-            <h3>${item.name}</h3>
             <img src="./menu/${item.image}" alt="${item.name}" class="menu-image">
-            <div class="menu-footer">
-                <p class="price">Rp ${item.price.toLocaleString()}</p>
-                <div class="quantity-controls">
-                    <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
-                    <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
-                    <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
+            <div class="menu-info">
+                <div class="price-quantity">
+                    <p class="price">Rp ${item.price.toLocaleString()}</p>
+                    <div class="quantity-controls">
+                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
+                        <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
+                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
+                    </div>
+                </div>
+                <div class="name-button">
+                    <h3 class="product-name">${item.name}</h3>
+                    <button type="button" class="add-button" onclick="addToOrder('${item.id}', '${item.name}', ${item.price})">Tambah</button>
                 </div>
             </div>
         `;
+        
+        // Menambahkan item ke dalam menu grid
         menuGrid.appendChild(menuItem);
     });
 }
