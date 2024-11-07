@@ -204,18 +204,12 @@ h2 {
 }
 
 .whatsapp-button {
-    background-color: #25d366; /* Hijau khas WhatsApp */
-    color: white;
+    background-color:  rgb(31, 167, 160); 
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-.whatsapp-button i {
-    margin-right: 8px; /* Ruang antara ikon dan teks */
+    transition: all 0.3s;
 }
 
 .whatsapp-button:hover {
@@ -255,7 +249,6 @@ h2 {
 }
 
 .site-footer {
-    
     padding: 10px 0;
     text-align: center;
     font-size: 14px;
@@ -349,4 +342,52 @@ h2 {
     .footer-content p {
         font-size: 14px; /* Ukuran teks di footer lebih kecil */
     }
+}
+/* Navbar */
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.navbar-list i {
+    margin-right: 8px;
+}
+
+/* Pencarian */
+.search-bar {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-button i {
+    font-size: 16px;
 }
