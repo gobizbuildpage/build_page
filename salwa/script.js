@@ -112,5 +112,77 @@ function calculateTotal() {
     // Update link WhatsApp
     const whatsappLink = document.getElementById('whatsappLink');
 const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}`;
-whatsappLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+whatsappLink.href = `https://wa.me/6285221323317?text=${encodeURIComponent(message)}`;
+}
+// Panggil updateTotal setiap kali quantity berubah
+document.querySelectorAll('.quantity-controls input').forEach(input => {
+    input.addEventListener('change', updateTotal);
+});
+
+
+document.getElementById('whatsappLink').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const paymentMethod = document.getElementById('paymentMethod').value; // Ambil metode pembayaran yang dipilih
+    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 2820321726\nKiki Santi Noviana";
+    const userName = getCookie("name");
+    const userWhatsapp = getCookie("whatsapp");
+    const userAddress = getCookie("address");
+    
+    const inputs = document.querySelectorAll('input[type="number"]');
+    let orders = [];
+    let total = 0;
+
+    inputs.forEach(input => {
+        const quantity = parseInt(input.value);
+        const price = parseInt(input.getAttribute('data-price'));
+        const name = input.getAttribute('data-name');
+
+        if (quantity > 0) {
+            total += quantity * price;
+            orders.push({ name, quantity, price: quantity * price });
+        }
+    });
+
+    let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan metode COD.";
+    
+    const message = `Saya ingin memesan:\n${orders.map(order => `${order.name} x${order.quantity} - Rp ${order.price.toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${paymentInfo}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
+    const whatsappUrl = `https://wa.me/6285221323317?text=${encodeURIComponent(message)}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+
+    // POST request to API
+    const postData = {
+        orders: orders,
+        total: total,
+        user: {
+            name: userName,
+            whatsapp: userWhatsapp,
+            address: userAddress
+        },
+        payment: paymentInfo,
+        paymentMethod: paymentMethod // Tambahkan paymentMethod ke postData
+    };
+
+    postJSON('https://asia-southeast2-awangga.cloudfunctions.net/jualin/data/order/'+getLastPathSegment(), 'login', '', postData, function(response) {
+        console.log('API Response:', response);
+    });
+});
+
+
+
+
+function getLastPathSegment() {
+    // Ambil pathname dari URL
+    let pathname = window.location.pathname;
+
+    // Hapus leading slash dan trailing slash jika ada
+    pathname = pathname.replace(/^\/|\/$/g, '');
+
+    // Pisahkan pathname menjadi bagian-bagian
+    let parts = pathname.split('/');
+
+    // Ambil bagian terakhir dari URL
+    return parts[parts.length - 1];
 }
