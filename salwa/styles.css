@@ -204,12 +204,18 @@ h2 {
 }
 
 .whatsapp-button {
-    background-color:  rgb(31, 167, 160); 
+    background-color: #25d366; /* Hijau khas WhatsApp */
+    color: white;
     padding: 10px 20px;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 5px;
-    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.whatsapp-button i {
+    margin-right: 8px; /* Ruang antara ikon dan teks */
 }
 
 .whatsapp-button:hover {
@@ -249,6 +255,7 @@ h2 {
 }
 
 .site-footer {
+    
     padding: 10px 0;
     text-align: center;
     font-size: 14px;
