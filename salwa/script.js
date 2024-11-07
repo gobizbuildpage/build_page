@@ -56,10 +56,9 @@ async function loadMenu() {
         const menuData = await response.json();
 
         const menuContainer = document.getElementById('menu-container');
-        menuContainer.innerHTML = menuData.map(item => `
-            <div class="menu-item">
-                <!-- Ganti ikon menjadi fa-martini-glass untuk minuman -->
-                <h3><i class="fas fa-martini-glass"></i> ${item.name}</h3>  <!-- Ikon untuk minuman -->
+        menuContainer.innerHTML = menuData.map(item => 
+            `<div class="menu-item">
+                <h3><i class="fas fa-martini-glass"></i> ${item.name}</h3>
                 <img src="menu/${item.image}" alt="${item.name}">
                 <p><i class="fas fa-tag"></i> Rp${item.price.toLocaleString('id-ID')}</p>
                 <div class="quantity-controls">
@@ -67,13 +66,12 @@ async function loadMenu() {
                     <input type="number" id="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
                     <button onclick="changeQuantity('qty${item.id}', ${item.price}, 1)"><i class="fas fa-plus"></i></button>
                 </div>
-            </div>
-        `).join('');
+            </div>`
+        ).join('');
     } catch (error) {
         console.error('Gagal memuat menu:', error);
     }
 }
-
 
 // Fungsi untuk mengubah jumlah item
 window.changeQuantity = function(id, price, delta) {
@@ -113,6 +111,6 @@ function calculateTotal() {
 
     // Update link WhatsApp
     const whatsappLink = document.getElementById('whatsappLink');
-    const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}`;
-    whatsappLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}`;
+whatsappLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
 }
