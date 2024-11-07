@@ -162,19 +162,17 @@ input:valid + label {
 
 .header {
     width: 100%;
-    background-color: #942b41;
+    background-color: #ffffff;
     padding: 10px 20px;
     text-align: center;
-    border-top-left-radius: 0px;
+    /* border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px; */
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
 }
 
-.header h1 {
-    color: white;
-}
 
 .banner-image {
     max-width: 100%;
