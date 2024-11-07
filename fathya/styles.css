@@ -165,10 +165,6 @@ input:valid + label {
     background-color: #ffffff;
     padding: 10px 20px;
     text-align: center;
-    /* border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px; */
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
 }
@@ -552,8 +548,13 @@ option {
     padding: 10px 0;
     text-align: center;
     font-size: 14px;
-    color: #333;
+    color: whitesmoke;
     margin-top: 40px;
+    background-color: #942b41;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 20px;
 }
 
 .footer-content {
@@ -573,14 +574,14 @@ option {
 }
 
 .footer-logo-icon {
-    width: 35px;
+    width: 150px;
     height: 35px;
     background-color: #4caf50;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    border-radius: 10px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -591,9 +592,9 @@ option {
 }
 
 .footer-content a {
-    color: #333;
+    color: white;
     text-decoration: none;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid white;
     font-size: 14px;
 }
 
