@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Meta Tags for Open Graph -->
-    <meta property="og:title" content="Pasakan Ambu" />
-    <meta property="og:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!" />
+    <meta property="og:title" content="Caturi Mango" />
+    <meta property="og:description" content="Nikmati berbagai pilihan menu minuman segar di Casturi Mango." />
     <meta property="og:image" content="./bg/gambar.jpg" />
     <meta property="og:url" content="./page" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Pasakan Ambu" />
+    <meta property="og:site_name" content="Casturi Mango" />
 
     <!-- Meta Tags for Twitter (Optional) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pasakan Ambu">
-    <meta name="twitter:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!">
+    <meta name="twitter:title" content="Casturi Mango">
+    <meta name="twitter:description" content="Nikmati berbagai pilihan menu minuman segar di Casturi Mango.">
     <meta name="twitter:image" content="./page/bg/gambar.jpg">
 </head>
 <body>
@@ -30,6 +30,9 @@
     </header>
     <main class="main-container">
         <h2>Form Pemesanan</h2>
+        <div class="promo-banner">
+            <p><strong>Promo:</strong> Diskon 10% untuk pembelian di atas Rp 100.000!</p> <!-- Promo tambahan -->
+        </div>
         <div class="menu-grid" id="menu-container">
             <!-- Menu items dimuat disini -->
         </div>
@@ -45,11 +48,21 @@
             </div>
             <h3>Pesanan Anda:</h3>
             <ul id="orderList"></ul> <!-- Menambahkan elemen untuk daftar pesanan -->
-            <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank">
-                <i class="fab fa-whatsapp"></i> Kirim Pesanan via WhatsApp
-            </a>
+            <button id="confirmOrder" class="confirm-button">Konfirmasi Pesanan</button> <!-- Tombol konfirmasi -->
         </div>
     </main>
+
+    <!-- Modal untuk konfirmasi pesanan -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <h2>Konfirmasi Pesanan</h2>
+            <p>Apakah pesanan Anda sudah benar?</p>
+            <ul id="confirmOrderList"></ul>
+            <p><strong>Total:</strong> Rp <span id="confirmTotalPrice">0</span></p>
+            <button id="sendOrder" class="send-button">Kirim via WhatsApp</button>
+            <button id="closeModal" class="close-button">Batal</button>
+        </div>
+    </div>
 
     <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
@@ -77,5 +90,4 @@
 
     <!-- Panggil script dari file eksternal -->
     <script type="module" src="script.js"></script>
-</body>
-</html>
+    <script>
