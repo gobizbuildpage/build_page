@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +6,9 @@
     font-family: Arial, sans-serif;
 }
 
+/* Body */
 body {
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -14,39 +16,57 @@ body {
     min-height: 100vh;
 }
 
+/* Header */
 header {
-    background-color: #34495e;
+    background: linear-gradient(to right, #56ab2f, #a8e063);
     color: #fff;
     padding: 20px;
     text-align: center;
     width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1rem;
-    color: #ecf0f1;
+    color: #f9f9f9;
 }
 
+/* Main */
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
+/* Card */
 .card {
     background-color: #fff;
+    border: 2px solid #ffa726; /* Aksen oranye */
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     text-align: center;
-    width: 250px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-color: #fb8c00; /* Warna oranye lebih gelap saat hover */
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
 
 .card a {
@@ -56,14 +76,46 @@ main {
 
 .card h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin: 15px 0 10px;
 }
 
+.card p {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 10px 20px;
+}
+
+/* Footer */
 footer {
     margin-top: auto;
     padding: 10px;
-    background-color: #34495e;
+    background-color: #2c3e50; /* Biru tua */
     color: #fff;
     text-align: center;
     width: 100%;
+    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card img {
+        height: 100px;
+    }
 }
