@@ -86,15 +86,15 @@ function renderMenu(menuItems) {
             <div class="menu-info">
                 <div class="price-quantity">
                     <p class="price">Rp ${item.price.toLocaleString()}</p>
-                    <div class="quantity-controls">
-                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
-                        <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
-                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
-                    </div>
+                    <span id="quantityDisplay${item.id}" class="quantity-display" style="display: none;">0</span>
                 </div>
                 <div class="name-button">
                     <h3 class="product-name">${item.name}</h3>
-                    <button type="button" class="add-button" onclick="addToOrder('${item.id}', '${item.name}', ${item.price})">Tambah</button>
+                    <button type="button" id="addButton${item.id}" class="add-button" onclick="showQuantityControls('${item.id}', ${item.price})">Tambah</button>
+                    <div class="quantity-controls" id="quantityControls${item.id}" style="display: none;">
+                        <button type="button" class="qty-btn" onclick="changeQuantity('${item.id}', -1)">-</button>
+                        <button type="button" class="qty-btn" onclick="changeQuantity('${item.id}', 1)">+</button>
+                    </div>
                 </div>
             </div>
         `;
@@ -102,6 +102,39 @@ function renderMenu(menuItems) {
         // Menambahkan item ke dalam menu grid
         menuGrid.appendChild(menuItem);
     });
+}
+
+function showQuantityControls(itemId, price) {
+    // Sembunyikan tombol "Tambah" dan tampilkan kontrol kuantitas
+    document.getElementById(`addButton${itemId}`).style.display = 'none';
+    document.getElementById(`quantityControls${itemId}`).style.display = 'inline-flex';
+    document.getElementById(`quantityDisplay${itemId}`).style.display = 'inline';
+    
+    // Set kuantitas awal menjadi 1
+    document.getElementById(`quantityDisplay${itemId}`).innerText = '1';
+
+    console.log(`Element addButton${itemId}:`, document.getElementById(`addButton${itemId}`));
+    console.log(`Element quantityControls${itemId}:`, document.getElementById(`quantityControls${itemId}`));
+    console.log(`Element quantityDisplay${itemId}:`, document.getElementById(`quantityDisplay${itemId}`));
+
+}
+
+function changeQuantity(itemId, change) {
+    const quantityDisplay = document.getElementById(`quantityDisplay${itemId}`);
+    let quantity = parseInt(quantityDisplay.innerText) || 0;
+
+    // Update quantity
+    quantity += change;
+
+    // Jika quantity di bawah 1, sembunyikan kontrol dan tampilkan kembali tombol "Tambah"
+    if (quantity < 1) {
+        document.getElementById(`quantityControls${itemId}`).style.display = 'none';
+        document.getElementById(`addButton${itemId}`).style.display = 'inline';
+        quantityDisplay.style.display = 'none';
+        quantity = 0;
+    } else {
+        quantityDisplay.innerText = quantity;
+    }
 }
 
 //function changeQuantity(id, price, delta) {
