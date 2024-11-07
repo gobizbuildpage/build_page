@@ -193,10 +193,9 @@ h2 {
     font-size: 1.5em;
 }
 
-.order-list {
-    list-style-type: none; /* Menghapus bullet points */
-    padding: 0;
-    margin: 0;
+#orderList {
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    margin-top: 20px;
 }
 
 #orderList li {
@@ -205,21 +204,22 @@ h2 {
 }
 
 .whatsapp-button {
-    display: inline-block;
-    background-color: #25d366;
+    background-color: #25d366; /* Hijau khas WhatsApp */
     color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
 }
 .whatsapp-button i {
-    margin-right: 10px;
+    margin-right: 8px; /* Ruang antara ikon dan teks */
 }
+
 .whatsapp-button:hover {
-    background-color: #128c7e;
+    background-color:  rgb(21, 119, 114); 
     transform: scale(1.05);
 }
 
