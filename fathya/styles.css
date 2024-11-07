@@ -691,34 +691,45 @@ option {
         height: 25px;
     }
 
-    /* Layout total pembelian di bagian bawah */
-    .total-summary {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #ffffff;
-        padding-bottom: 15px;
-        padding-top: 15px;
-        display: flex;
-        justify-content: space-around;
-        border-top: 1px solid #ddd;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 10; /* Pastikan berada di atas elemen lain */
-    }
+    /* Total Summary Container */
+.total-summary {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff; /* White background */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    z-index: 1000;
+  }
 
     .main-container {
         padding-bottom: 60px; /* Tambahkan padding agar konten tidak tertutup total-summary */
     }
-
+/* Content inside Total Summary */
+.total-summary-content {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: #c9994c; 
+    color: #fff; /* White text color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    gap: 20px;
+  }
+  
 .total-summary .total-items {
     font-weight: bold;
     font-size: 16px;
+    text-align: start;
 }
 
 .total-summary .total-price {
     font-weight: bold;
     font-size: 16px;
     color: #942b41;
+    text-align:end;
 }
 
 }
