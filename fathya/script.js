@@ -123,7 +123,6 @@ window.changeQuantity = function(id, price, delta, itemId) {
         qtyInput.value = newQuantity;
     } else {
         qtyInput.value = 0;
-        // document.getElementById(`quantity-controls-${itemId}`).style.visibility = "hidden";
         document.getElementById(`quantity-controls-${itemId}`).style.display = "none";
         document.getElementById(`add-to-cart-${itemId}`).classList.remove("hidden"); // Tampilkan kembali tombol "Tambah Ke Pesanan"
     }
