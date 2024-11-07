@@ -67,7 +67,7 @@ h3 {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px 10px;
     /* Mengatur gap antara baris dan kolom */
     margin-bottom: 20px;
@@ -79,6 +79,12 @@ h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 250px;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Card Produk */
@@ -126,13 +132,41 @@ h3 {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
+    overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    transition: transform 0.2s;
 }
 
+.menu-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.menu-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 10px;
+}
 
 .menu-footer {
     display: flex;
@@ -148,6 +182,14 @@ h3 {
     /* Beri jarak antara harga dan kuantitas */
     font-size: 16px;
     /* Sesuaikan ukuran font jika diperlukan */
+    font-weight: bold;
+}
+
+.price-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .quantity-controls {
@@ -171,6 +213,18 @@ h3 {
 
 .qty-btn:hover {
     background-color: #ccc;
+}
+
+.name-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-name {
+    font-size: 1rem;
+    flex: 1;
+    text-align: left;
 }
 
 .quantity-controls input[type="number"] {
