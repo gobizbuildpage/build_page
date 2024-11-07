@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - Logic Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/build_page/sindy/css/cart.css">
 </head>
 <body>
 
@@ -51,6 +51,11 @@
             let totalAmount = 0;
 
             cart.forEach(item => {
+                // Pastikan item memiliki quantity
+                if (!item.quantity) {
+                    item.quantity = 1;
+                }
+
                 const cartItem = document.createElement('div');
                 cartItem.classList.add('cart-item');
                 cartItem.innerHTML = `
@@ -75,6 +80,7 @@
             });
 
             totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
         }
 
         // Update item quantity
