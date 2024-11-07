@@ -37,21 +37,23 @@
             <span class="total-amount" id="totalAmount">Rp 0</span>
         </div>
 
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <a href="checkout.html">
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </a>
     </div>
 
     <script>
-        // Function to render cart items
+        // Function to render cart items and handle selection
         function renderCart() {
             const cartItemsContainer = document.getElementById('cartItems');
             const totalAmountElement = document.getElementById('totalAmount');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            cartItemsContainer.innerHTML = ''; // Clear previous items
             let totalAmount = 0;
 
+            cartItemsContainer.innerHTML = ''; // Clear previous items
+
             cart.forEach(item => {
-                // Pastikan item memiliki quantity
+                // Ensure item has a quantity
                 if (!item.quantity) {
                     item.quantity = 1;
                 }
@@ -62,7 +64,7 @@
                     <img src="${item.image}" alt="${item.name}">
                     <div class="item-info">
                         <h4>${item.name}</h4>
-                        <p>Price: ${item.price}</p>
+                        <p>Price: Rp ${item.price}</p>
                     </div>
                     <div class="quantity">
                         <button onclick="updateQuantity('${item.name}', 'decrease')">-</button>
@@ -70,13 +72,16 @@
                         <button onclick="updateQuantity('${item.name}', 'increase')">+</button>
                     </div>
                     <div>
-                        <input type="checkbox" class="item-select" data-item="${item.name}" onchange="updateSelection()"> Select
+                        <input type="checkbox" class="item-select" data-item="${item.name}" ${item.selected ? 'checked' : ''} onchange="updateSelection('${item.name}')"> Select
                     </div>
                     <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
                 `;
                 cartItemsContainer.appendChild(cartItem);
 
-                totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+                // Add to total if selected
+                if (item.selected) {
+                    totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+                }
             });
 
             totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;
@@ -117,14 +122,24 @@
             checkboxes.forEach(checkbox => {
                 checkbox.checked = isChecked;
             });
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.forEach(item => {
+                item.selected = isChecked; // Mark all items as selected/deselected
+            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
         }
 
         // Handle individual selection
-        function updateSelection() {
-            const selectAllCheckbox = document.getElementById('selectAll');
-            const checkboxes = document.querySelectorAll('.item-select');
-            const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
-            selectAllCheckbox.checked = selectedCheckboxes.length === checkboxes.length;
+        function updateSelection(itemName) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(i => i.name === itemName);
+            if (item) {
+                item.selected = !item.selected; // Toggle selection state
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
         }
 
         // Initial render

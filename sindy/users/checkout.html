@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Logic Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/build_page/sindy/css/cart.css"> <!-- Menggunakan CSS yang sama -->
+    <link rel="stylesheet" href="/build_page/sindy/css/cart.css"> <!-- Reusing the same CSS -->
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     </header>
 
     <!-- Checkout Container -->
-    <div class="checkout-container cart-container"> <!-- Memakai kelas yang sama untuk gaya -->
+    <div class="checkout-container cart-container">
         <h2>Checkout</h2>
 
         <!-- Order Summary -->
@@ -55,28 +55,30 @@
     </div>
 
     <!-- Footer Section -->
-    <footer id="footer">
-        <p>&copy; 2023 Logic Coffee. All rights reserved.</p>
-    </footer>
+  
 
     <script>
-        // Function to load order items and total amount
+        // Function to load only selected order items and total amount
         function loadOrderSummary() {
             const orderItemsContainer = document.getElementById('orderItems');
             const totalAmountElement = document.getElementById('totalAmount');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             let totalAmount = 0;
 
-            cart.forEach(item => {
-                const orderItem = document.createElement('div');
-                orderItem.classList.add('order-item');
-                orderItem.innerHTML = `
-                    <p>${item.name} x ${item.quantity}</p>
-                    <p>Rp ${parseInt(item.price.replace(/\D/g, '')) * item.quantity}</p>
-                `;
-                orderItemsContainer.appendChild(orderItem);
+            orderItemsContainer.innerHTML = ''; // Clear previous items
 
-                totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+            cart.forEach(item => {
+                if (item.selected) {
+                    const orderItem = document.createElement('div');
+                    orderItem.classList.add('order-item');
+                    orderItem.innerHTML = `
+                        <p>${item.name} x ${item.quantity}</p>
+                        <p>Rp ${parseInt(item.price.replace(/\D/g, '')) * item.quantity}</p>
+                    `;
+                    orderItemsContainer.appendChild(orderItem);
+
+                    totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+                }
             });
 
             totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;

@@ -6,13 +6,15 @@
 }
 
 /* General page layout */
-body {
+bbody {
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     color: #b27d42;
     margin: 0;
     padding: 0;
 }
+
 
 /* Header styles */
 header {
@@ -39,8 +41,10 @@ header nav a:hover {
 }
 
 /* General Container */
+/* General Container */
 .cart-container {
-    padding: 20px;
+    width: 100%; /* Set to full width */
+    padding: 20px; /* Adjust padding if needed */
     max-width: 1000px;
     margin: 0 auto;
     background-color: #ffffff;
