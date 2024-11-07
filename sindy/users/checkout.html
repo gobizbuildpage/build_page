@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Logic Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/build_page/sindy/css/cart.css"> <!-- Menggunakan CSS yang sama -->
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <span class="logo">Logic Coffee</span>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="#footer">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- Checkout Container -->
+    <div class="checkout-container cart-container"> <!-- Memakai kelas yang sama untuk gaya -->
+        <h2>Checkout</h2>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="orderItems">
+                <!-- Order items will be generated here by JavaScript -->
+            </div>
+            <div class="order-total cart-total">
+                <span>Total Price:</span>
+                <span id="totalAmount">Rp 0</span>
+            </div>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="payment-method">
+            <h3>Select Payment Method</h3>
+            <label>
+                <input type="radio" name="paymentMethod" value="Credit Card" required> Credit Card
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="Bank Transfer" required> Bank Transfer
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="Cash on Delivery" required> Cash on Delivery
+            </label><br>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="checkout-btn" onclick="confirmCheckout()">Confirm and Pay</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <p>&copy; 2023 Logic Coffee. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to load order items and total amount
+        function loadOrderSummary() {
+            const orderItemsContainer = document.getElementById('orderItems');
+            const totalAmountElement = document.getElementById('totalAmount');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+                orderItem.innerHTML = `
+                    <p>${item.name} x ${item.quantity}</p>
+                    <p>Rp ${parseInt(item.price.replace(/\D/g, '')) * item.quantity}</p>
+                `;
+                orderItemsContainer.appendChild(orderItem);
+
+                totalAmount += parseInt(item.price.replace(/\D/g, '')) * item.quantity;
+            });
+
+            totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;
+        }
+
+        // Function to handle checkout confirmation
+        function confirmCheckout() {
+            const paymentMethods = document.getElementsByName('paymentMethod');
+            let selectedMethod = null;
+            for (const method of paymentMethods) {
+                if (method.checked) {
+                    selectedMethod = method.value;
+                    break;
+                }
+            }
+
+            if (!selectedMethod) {
+                alert('Please select a payment method.');
+                return;
+            }
+
+            // Clear cart and confirm order
+            localStorage.removeItem('cart');
+            alert(`Thank you for your purchase!\nPayment Method: ${selectedMethod}\nYour order will be processed.`);
+            window.location.href = '/index.html'; // Redirect to homepage after checkout
+        }
+
+        // Initial load of order summary
+        loadOrderSummary();
+    </script>
+</body>
+</html>
