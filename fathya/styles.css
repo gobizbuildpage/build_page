@@ -1,5 +1,6 @@
 * {
-    box-sizing: border-box; /* Pastikan padding dan border termasuk dalam ukuran elemen */
+    box-sizing: border-box;
+    /* Pastikan padding dan border termasuk dalam ukuran elemen */
 }
 
 body {
@@ -8,7 +9,12 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
-h1, h2, h3, .judul { /* Untuk judul */
+
+h1,
+h2,
+h3,
+.judul {
+    /* Untuk judul */
     font-family: "Poppins", Arial, sans-serif;
 }
 
@@ -40,7 +46,8 @@ h1, h2, h3, .judul { /* Untuk judul */
 .input-group {
     position: relative;
     margin-bottom: 20px;
-    display: flex; /* Use flexbox for better alignment */
+    display: flex;
+    /* Use flexbox for better alignment */
     align-items: center;
     justify-content: center;
 }
@@ -67,8 +74,8 @@ input {
     font-size: 16px;
 }
 
-input:focus + label,
-input:valid + label {
+input:focus+label,
+input:valid+label {
     top: 0;
     font-size: 16px;
     color: #c9994c;
@@ -117,9 +124,12 @@ input:valid + label {
 
 /* Efek pada input yang telah diisi */
 .modal-content input[type="text"]:valid {
-    border-color: #c9994c; /* Warna border saat terisi */
-    background-color: #fff; /* Warna latar belakang saat terisi */
-    transform: scale(1.02); /* Sedikit memperbesar saat terisi */
+    border-color: #c9994c;
+    /* Warna border saat terisi */
+    background-color: #fff;
+    /* Warna latar belakang saat terisi */
+    transform: scale(1.02);
+    /* Sedikit memperbesar saat terisi */
 }
 
 /* Styling untuk tombol simpan */
@@ -145,7 +155,8 @@ input:valid + label {
 
 /* Style for the "Batal" button */
 .cancel-button {
-    background-color: #dc3545; /* Red color for danger */
+    background-color: #dc3545;
+    /* Red color for danger */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -155,7 +166,8 @@ input:valid + label {
 }
 
 .cancel-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333;
+    /* Darker red on hover */
 }
 
 
@@ -166,7 +178,8 @@ input:valid + label {
     padding: 10px 20px;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Menambahkan bayangan */
 }
 
 
@@ -174,7 +187,8 @@ input:valid + label {
     max-width: 100%;
     height: auto;
     margin-top: 10px;
-    border-radius: 20px; /* Membuat sisi banner membulat */
+    border-radius: 20px;
+    /* Membuat sisi banner membulat */
 }
 
 .container-wrapper {
@@ -194,12 +208,16 @@ input:valid + label {
     max-width: 1200px;
     padding: 20px;
     background-color: #ffffff;
-    margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek visual */
-    border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
+    margin: 20px auto;
+    /* Menggunakan margin auto untuk membuat elemen di tengah */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* Tambahkan bayangan untuk efek visual */
+    border-radius: 10px;
+    /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
 }
 
-.main-container, .receipt-container {
+.main-container,
+.receipt-container {
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -215,7 +233,8 @@ h2 {
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px 10px; /* Mengatur gap antara baris dan kolom */
+    gap: 20px 10px;
+    /* Mengatur gap antara baris dan kolom */
     margin-bottom: 20px;
 }
 
@@ -229,54 +248,66 @@ h2 {
     justify-content: space-between;
     height: 100%;
 }
+
 /* Efek hover untuk item menu */
 .menu-item:hover {
-    transform: translateY(-5px); /* Memberikan efek melayang */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Tambahkan shadow saat hover */
+    transform: translateY(-5px);
+    /* Memberikan efek melayang */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    /* Tambahkan shadow saat hover */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-image {
-    border-top-left-radius: 10px; /* Sesuaikan nilai sesuai kebutuhan */
+    border-top-left-radius: 10px;
+    /* Sesuaikan nilai sesuai kebutuhan */
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     object-fit: cover;
-    height: 250px; /* Sesuaikan tinggi sesuai kebutuhan */
+    height: 250px;
+    /* Sesuaikan tinggi sesuai kebutuhan */
     width: 100%;
 }
 
 .total-summary {
-    display:none;
+    display: none;
 }
 
 .menu-footer {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Teks akan berada di sebelah kiri */
-    padding: 0 15px; /* Jarak ke tepi card, sesuaikan sesuai kebutuhan */
+    align-items: flex-start;
+    /* Teks akan berada di sebelah kiri */
+    padding: 0 15px;
+    /* Jarak ke tepi card, sesuaikan sesuai kebutuhan */
 }
 
 
-.menu-footer h3, 
+.menu-footer h3,
 .menu-footer .price {
     margin: 5px 0;
 }
 
 .add-to-cart,
 .quantity-controls {
-    align-self: center; /* Menjaga tombol tetap di tengah */
-    margin: 10px 0; /* Jarak dari elemen di atasnya */
+    align-self: center;
+    /* Menjaga tombol tetap di tengah */
+    margin: 10px 0;
+    /* Jarak dari elemen di atasnya */
 }
 
 .price {
-    margin-bottom: 10px 0; /* Beri jarak antara harga dan kuantitas */
-    font-size: 16px; /* Sesuaikan ukuran font jika diperlukan */
+    margin-bottom: 10px 0;
+    /* Beri jarak antara harga dan kuantitas */
+    font-size: 16px;
+    /* Sesuaikan ukuran font jika diperlukan */
 }
 
 .hidden {
     display: none;
 }
+
 .add-to-cart {
     background-color: #c9994c;
     color: #fff;
@@ -291,14 +322,15 @@ h2 {
 }
 
 .add-to-cart:hover {
-    background-color:#a57b32;
+    background-color: #a57b32;
 }
+
 .quantity-controls {
     display: none;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    flex-grow:1;
+    flex-grow: 1;
 }
 
 .qty-btn {
@@ -312,11 +344,11 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius:5px;
+    border-radius: 5px;
 }
 
 .qty-btn:hover {
-    background-color: #a57b32 ;
+    background-color: #a57b32;
 }
 
 .quantity-controls input[type="number"] {
@@ -341,16 +373,19 @@ h2 {
     max-width: 1200px;
     padding: 20px;
     background-color: #ffffff;
-    margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
-    border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
+    margin: 20px auto;
+    /* Menggunakan margin auto untuk membuat elemen di tengah */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Tambahkan bayangan untuk efek visual */
+    border-radius: 10px;
+    /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
     text-align: center;
 }
 
 .total-container h2 {
     color: #942b41;
     font-size: 1.5em;
-    margin:0;
+    margin: 0;
 }
 
 .total-container .title {
@@ -369,31 +404,31 @@ h2 {
 }
 
 .order-grid .menu-column {
-    text-align:left;
+    text-align: left;
 }
 
 #orderList {
     display: contents;
-    padding: 0 20px; 
+    padding: 0 20px;
     margin-top: 20px;
-    
+
 }
 
 #orderList li {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    
+
 }
 
 #orderList .order-item {
     display: contents;
 }
-  
+
 #orderList .order-menu {
     text-align: left;
 }
-  
+
 #orderList .order-quantity,
 #orderList .order-price {
     text-align: center;
@@ -401,7 +436,8 @@ h2 {
 
 .totalPayment {
     display: flex;
-    justify-content: space-between; /* Menempatkan teks total di kiri dan angka di kanan */
+    justify-content: space-between;
+    /* Menempatkan teks total di kiri dan angka di kanan */
     align-items: center;
     padding: 10px 0;
     margin-bottom: 5px;
@@ -412,7 +448,8 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    border-bottom: 1px solid #ddd; /* Garis di atas payment-method */
+    border-bottom: 1px solid #ddd;
+    /* Garis di atas payment-method */
     padding-bottom: 20px;
 }
 
@@ -431,23 +468,26 @@ h2 {
     font-size: 1em;
     background-color: white;
     color: #c9994c;
-    width: auto; /* Width adapts to content */
+    width: auto;
     text-align-last: left;
     min-width: 80px;
-    cursor: none;
 }
 
 /* Style untuk opsi dalam dropdown */
 option {
-    background-color: white; /* Latar belakang putih untuk opsi */
-    color: #c9994c; /* Teks berwarna oren untuk opsi */
+    background-color: white;
+    /* Latar belakang putih untuk opsi */
+    color: #c9994c;
+    /* Teks berwarna oren untuk opsi */
     border-radius: 5px;
 }
 
 /* Hover style untuk opsi dalam dropdown */
 .payment-method select:hover option {
-    background-color: #c9994c; /* Latar belakang opsi saat hover */
-    color: white; /* Teks berwarna putih saat hover */
+    background-color: #c9994c;
+    /* Latar belakang opsi saat hover */
+    color: white;
+    /* Teks berwarna putih saat hover */
 }
 
 .edit-info-button {
@@ -473,17 +513,20 @@ option {
         opacity: 0;
         transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 /* Animasi untuk modal yang muncul */
 @keyframes modalFadeOut {
     from {
         opacity: 0;
         transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -502,7 +545,7 @@ option {
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .whatsapp-button:hover {
@@ -530,6 +573,7 @@ option {
     max-width: 400px;
     text-align: center;
 }
+
 .modal-content img {
     width: 100%;
     height: 100%;
@@ -608,7 +652,8 @@ option {
 /* Responsif tampilan .menu-item */
 @media only screen and (max-width: 600px) {
     .menu-grid {
-        grid-template-columns: 1fr; /* Satu kolom di ponsel */
+        grid-template-columns: 1fr;
+        /* Satu kolom di ponsel */
     }
 
     .menu-item {
@@ -619,7 +664,7 @@ option {
         max-width: 100%;
         max-height: 100px;
     }
-    
+
 
     .menu-image {
         max-width: 30%;
@@ -639,7 +684,7 @@ option {
         flex-direction: column;
     }
 
-    .menu-footer h3, 
+    .menu-footer h3,
     .menu-footer .price {
         margin-bottom: 0;
         font-size: 14px;
@@ -666,9 +711,9 @@ option {
         justify-content: right;
         align-self: flex-end;
         margin-bottom: 10px;
-        flex-grow:1;
+        flex-grow: 1;
     }
-    
+
     .qty-btn {
         background-color: #c9994c;
         color: white;
@@ -678,7 +723,7 @@ option {
         font-size: 10px;
         height: 25px;
         display: flex;
-        border-radius:5px;
+        border-radius: 5px;
     }
 
     .quantity-controls input[type="number"] {
@@ -692,66 +737,69 @@ option {
     }
 
     /* Total Summary Container */
-.total-summary {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff; /* White background */
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    z-index: 1000;
-  }
+    .total-summary {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        /* White background */
+        box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        z-index: 1000;
+    }
 
     .main-container {
-        padding-bottom: 60px; /* Tambahkan padding agar konten tidak tertutup total-summary */
+        padding-bottom: 60px;
+        /* Tambahkan padding agar konten tidak tertutup total-summary */
     }
-/* Content inside Total Summary */
-.total-summary-content {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    background-color: #c9994c; 
-    color: #fff; /* White text color */
-    padding: 10px 15px;
-    border-radius: 5px;
-    gap: 70px;
-  }
 
-  .right {
-    align-items: flex-start;
-  }
+    /* Content inside Total Summary */
+    .total-summary-content {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        background-color: #c9994c;
+        color: #fff;
+        /* White text color */
+        padding: 10px 15px;
+        border-radius: 5px;
+        gap: 70px;
+    }
 
-  .left{
-    display: flex;
-    align-items: flex-end;
-  }
-  
-.total-summary .total-items {
-    font-weight: bold;
-    font-size: 16px;
-    text-align: start;
+    .right {
+        align-items: flex-start;
+    }
+
+    .left {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .total-summary .total-items {
+        font-weight: bold;
+        font-size: 16px;
+        text-align: start;
+    }
+
+    .total-summary .left .total-price {
+        font-weight: bold;
+        font-size: 16px;
+        color: #942b41;
+        text-align: end;
+        margin-bottom: 4px
+    }
+
+    /* Checkout Icon */
+    .checkout-icon {
+        font-size: 1.2rem;
+        margin-left: 10px;
+        color: white;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
-
-.total-summary .left .total-price {
-    font-weight: bold;
-    font-size: 16px;
-    color: #942b41;
-    text-align:end;
-    margin-bottom: 4px
-}
-
-/* Checkout Icon */
-.checkout-icon {
-    font-size: 1.2rem; 
-    margin-left: 10px;
-    color: white;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-}
-
