@@ -23,7 +23,7 @@ body {
     max-width: 100%;
     height: auto;
     margin-top: 10px;
-    border-radius: 20px; /* Membuat sisi banner membulat */
+    border-radius: 10px; /* Membuat sisi banner membulat */
 }
 
 .main-container {
@@ -349,8 +349,10 @@ h2 {
     padding: 10px 20px;
     color: white;
     display: flex;
+    flex-wrap: wrap; /* Memungkinkan item membungkus di layar kecil */
     justify-content: space-between;
     align-items: center;
+    gap: 10px; /* Tambahkan jarak antara elemen */
 }
 
 .navbar-list {
@@ -359,6 +361,8 @@ h2 {
     gap: 20px;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* Agar elemen bisa membungkus */
+    justify-content: center; /* Susun elemen secara simetris */
 }
 
 .navbar-list li {
@@ -367,16 +371,15 @@ h2 {
     font-size: 14px;
 }
 
-.navbar-list i {
-    margin-right: 8px;
-}
-
 /* Pencarian */
 .search-bar {
     padding: 5px;
     margin-right: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    width: 100%; /* Memastikan input memenuhi lebar kontainer */
+    max-width: 250px; /* Tetapkan batas maksimal untuk input */
+    flex-grow: 1; /* Biarkan input memenuhi ruang */
 }
 
 .search-button {
@@ -386,8 +389,26 @@ h2 {
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    flex-shrink: 0; /* Tombol tidak mengecil */
 }
 
 .search-button i {
     font-size: 16px;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Susun elemen secara vertikal */
+        align-items: center; /* Pusatkan elemen */
+    }
+
+    .navbar-list {
+        flex-direction: column; /* Susun item secara vertikal */
+        gap: 10px;
+    }
+
+    .search-bar {
+        width: 100%; /* Pastikan input pencarian memenuhi lebar */
+    }
 }
