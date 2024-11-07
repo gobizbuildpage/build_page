@@ -38,10 +38,6 @@
       rel="stylesheet"
     />
 
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-oZVrdd3DQT1Q4QeEJKPb3eg9zzN7SR6SU5fZbmPiZtY2vZpgFVjONns2gZrW7X4Z" crossorigin="anonymous" />
-
-
   </head>
   <body>
     <header class="header">
@@ -60,7 +56,7 @@
       </main>
 
       <!-- konten kanan: receipt -->
-      <div class="total-container">
+      <div id="totalContainer" class="total-container">
         <h2 class="title">Pesanan Anda</h2>
         <div class="order-grid">
           <h3 class="menu-column">Menu</h3>
@@ -87,13 +83,11 @@
         >
       </div>
     </div>
-    <div class="total-summary-container">
-    <div class="total-summary">
+
+    <div class="total-summary" id="totalSummary">
       <span class="total-items"><span id="totalItems">0</span> Item</span>
-      <span class="total-price">Rp <span id="totalPrice">0</span><i class="fa-solid fa-bag-shopping"></i>
-    </span>
+      <span class="total-price">Rp <span id="totalPrice">0</span></span>
     </div>
-  </div>
     
     <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
@@ -137,5 +131,10 @@
     </footer>
 
     <script src="script.js" type="module"></script>
+    <script>
+      document.getElementById("totalSummary").addEventListener("click", function () {
+        document.getElementById("totalContainer").scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
   </body>
 </html>

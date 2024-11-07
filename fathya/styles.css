@@ -434,6 +434,7 @@ h2 {
     width: auto; /* Width adapts to content */
     text-align-last: left;
     min-width: 80px;
+    cursor: none;
 }
 
 /* Style untuk opsi dalam dropdown */
@@ -712,14 +713,12 @@ option {
 .total-summary .total-items {
     font-weight: bold;
     font-size: 16px;
-    /* background-color: #c9994c; */
 }
 
 .total-summary .total-price {
     font-weight: bold;
     font-size: 16px;
     color: #942b41;
-    /* background-color: #c9994c; */
 }
 
 }
