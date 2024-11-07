@@ -71,7 +71,7 @@ input:focus + label,
 input:valid + label {
     top: 0;
     font-size: 16px;
-    color: #ff6600;
+    color: #c9994c;
 }
 
 
@@ -117,7 +117,7 @@ input:valid + label {
 
 /* Efek pada input yang telah diisi */
 .modal-content input[type="text"]:valid {
-    border-color: #ff6600; /* Warna border saat terisi */
+    border-color: #c9994c; /* Warna border saat terisi */
     background-color: #fff; /* Warna latar belakang saat terisi */
     transform: scale(1.02); /* Sedikit memperbesar saat terisi */
 }
@@ -135,12 +135,12 @@ input:valid + label {
 }
 
 .save-button {
-    background-color: #ff6600;
+    background-color: #c9994c;
 
 }
 
 .save-button:hover {
-    background-color: #cc4400;
+    background-color: #a57b32;
 }
 
 /* Style for the "Batal" button */
@@ -284,7 +284,7 @@ h2 {
     display: none;
 }
 .add-to-cart {
-    background-color: #ff6600;
+    background-color: #c9994c;
     color: #fff;
     border: none;
     padding: 8px 10px;
@@ -297,7 +297,7 @@ h2 {
 }
 
 .add-to-cart:hover {
-    background-color:#CC4400;
+    background-color:#a57b32;
 }
 .quantity-controls {
     display: none;
@@ -308,7 +308,7 @@ h2 {
 }
 
 .qty-btn {
-    background-color: #ff6600;
+    background-color: #c9994c;
     color: white;
     border: none;
     padding: 10px;
@@ -322,14 +322,14 @@ h2 {
 }
 
 .qty-btn:hover {
-    background-color: #CC4400 ;
+    background-color: #a57b32 ;
 }
 
 .quantity-controls input[type="number"] {
     width: 60px;
     text-align: center;
     font-size: 16px;
-    border: 1px solid #ff6600;
+    border: 1px solid #c9994c;
     border-radius: 5px;
     margin: 0 5px;
     height: 40px;
@@ -432,11 +432,11 @@ h2 {
 
 .payment-method select {
     padding: 8px;
-    border: 2px solid #ff6600;
+    border: 2px solid #c9994c;
     border-radius: 10px;
     font-size: 1em;
     background-color: white;
-    color: #ff6600;
+    color: #c9994c;
     width: auto; /* Width adapts to content */
     text-align-last: left;
     min-width: 80px;
@@ -445,13 +445,13 @@ h2 {
 /* Style untuk opsi dalam dropdown */
 option {
     background-color: white; /* Latar belakang putih untuk opsi */
-    color: #ff6600; /* Teks berwarna oren untuk opsi */
+    color: #c9994c; /* Teks berwarna oren untuk opsi */
     border-radius: 5px;
 }
 
 /* Hover style untuk opsi dalam dropdown */
 .payment-method select:hover option {
-    background-color: #ff6600; /* Latar belakang opsi saat hover */
+    background-color: #c9994c; /* Latar belakang opsi saat hover */
     color: white; /* Teks berwarna putih saat hover */
 }
 
@@ -651,7 +651,7 @@ option {
     }
 
     .add-to-cart {
-        background-color: #ff6600;
+        background-color: #c9994c;
         color: #fff;
         border: none;
         padding: 8px 15px;
@@ -670,7 +670,7 @@ option {
     }
     
     .qty-btn {
-        background-color: #ff6600;
+        background-color: #c9994c;
         color: white;
         border: none;
         padding: 10px;
@@ -685,7 +685,7 @@ option {
         width: 60px;
         text-align: center;
         font-size: 10px;
-        border: 1px solid #ff6600;
+        border: 1px solid #c9994c;
         border-radius: 5px;
         margin: 0 5px;
         height: 25px;
