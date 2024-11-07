@@ -506,6 +506,7 @@ h3 {
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
+    white-space: nowrap; /* Menjaga teks tetap dalam satu baris */
 }
 
 /* Default style for icons */
