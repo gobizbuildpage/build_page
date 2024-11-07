@@ -162,11 +162,18 @@ input:valid + label {
 
 .header {
     width: 100%;
-    background-color: #ffffff;
+    background-color: #942b41;
     padding: 10px 20px;
     text-align: center;
-    border-radius: 20px; /* Membuat sisi header membulat */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+.header h1 {
+    color: white;
 }
 
 .banner-image {
@@ -347,7 +354,7 @@ h2 {
 }
 
 .total-container h2 {
-    color: #d9534f;
+    color: #942b41;
     font-size: 1.5em;
     margin:0;
 }
@@ -593,8 +600,8 @@ option {
 }
 
 .footer-content a:hover {
-    color: #d9534f;
-    border-bottom: 1px solid #d9534f;
+    color: #942b41;
+    border-bottom: 1px solid #942b41;
 }
 
 
@@ -710,7 +717,7 @@ option {
 .total-summary .total-price {
     font-weight: bold;
     font-size: 16px;
-    color: #d9534f;
+    color: #942b41;
 }
 
 }
