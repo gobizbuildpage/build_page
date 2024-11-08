@@ -232,7 +232,7 @@ function calculateTotal() {
 
     const whatsappLink = document.getElementById('whatsappLink');
     const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
-    whatsappLink.href = `https://wa.me/628386640950?text=${encodeURIComponent(message)}`;
+    whatsappLink.href = `https://wa.me/+6283866450950?text=${encodeURIComponent(message)}`;
 }
 
 
@@ -262,7 +262,7 @@ function handleOrderSubmission(event) {
     let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan metode COD.";
 
     const message = `Saya ingin memesan:\n${orders.map(order => `${order.name} x${order.quantity} - Rp ${order.price.toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${paymentInfo}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
-    const whatsappUrl = `https://wa.me/628386640950?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+6283866450950?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, '_blank');
 
