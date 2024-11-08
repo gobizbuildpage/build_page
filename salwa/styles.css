@@ -350,7 +350,7 @@ h2 {
     color: white;
     display: flex;
     flex-wrap: wrap; /* Memungkinkan item membungkus di layar kecil */
-    justify-content: space-between;
+    justify-content: center; /* Pusatkan seluruh elemen navbar */
     align-items: center;
     gap: 10px; /* Tambahkan jarak antara elemen */
 }
