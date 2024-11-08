@@ -231,7 +231,7 @@ h2 {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: rgb(31, 167, 160); 
     padding: 20px;
     border-radius: 10px;
     width: 90%;
@@ -239,6 +239,18 @@ h2 {
     text-align: center;
     border: 2px solid #8b2932;
     overflow: hidden; /* Menjaga konten tidak keluar dari batas */
+}
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b2932;  /* Warna khusus untuk <h2> di modal */
+}
+.modal-content label {
+    color: #8b2932;  /* Warna teks label */
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: left;
 }
 
 .modal-banner {
@@ -254,9 +266,17 @@ h2 {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #8b2932;
+    border: 1px solid #ddd;
     box-sizing: border-box;
-    color: #8b2932;
+    color: #8b2932;  /* Warna teks input */
+}
+
+.modal-icon {
+    width: 100%; /* Ukuran lebar ikon */
+    height: auto; /* Menjaga rasio aspek gambar */
+    display: block;
+    margin: 0 auto 20px; /* Menjaga gambar di tengah dan memberi jarak bawah */
+    border-radius: 5px;
 }
 
 button {
