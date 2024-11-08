@@ -437,6 +437,7 @@ h3 {
 .payment-method {
     margin-left: 20px;
     /* Jarak antara Total dan Pilih Metode Pembayaran */
+    margin-bottom: 20px;
 }
 
 .centered-text {
