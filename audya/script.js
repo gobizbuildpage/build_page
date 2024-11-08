@@ -118,7 +118,7 @@ function calculateTotal() {
     const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
     let orders = [];
-    const rek = "Pembayaran akan dilakukan dengan metode COD";
+    const rek = "Pembayaran akan dilakukan dengan COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
@@ -153,7 +153,7 @@ document.getElementById('whatsappLink').addEventListener('click', function (even
     event.preventDefault();
 
     const paymentMethod = document.getElementById('paymentMethod').value; // Ambil metode pembayaran yang dipilih
-    const rek = "Pembayaran akan dilakukan dengan metode COD";
+    const rek = "Pembayaran akan dilakukan dengan COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
@@ -173,7 +173,7 @@ document.getElementById('whatsappLink').addEventListener('click', function (even
         }
     });
 
-    let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan metode COD.";
+    let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan COD.";
 
     const message = `Saya ingin memesan:\n${orders.map(order => `${order.name} x${order.quantity} - Rp ${order.price.toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${paymentInfo}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
     const whatsappUrl = `https://wa.me/6285607253198?text=${encodeURIComponent(message)}`;
