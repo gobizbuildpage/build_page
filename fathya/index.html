@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pasakan Ambu</title>
+    <title>Titha Cookies</title>
     <!-- css -->
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Favicon -->
-    <link rel="icon" href="./bg/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./bg/titha_icon.png" type="image/x-icon" />
 
     <!-- Meta Tags for Open Graph -->
     <meta property="og:title" content="Pasakan Ambu" />
@@ -19,11 +19,11 @@
     <meta property="og:image" content="./bg/gambar.jpg" />
     <meta property="og:url" content="./page" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Pasakan Ambu" />
+    <meta property="og:site_name" content="Titha Cookies" />
 
     <!-- Meta Tags for Twitter (Optional) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pasakan Ambu" />
+    <meta name="twitter:title" content="Titha Cookies" />
     <meta
       name="twitter:description"
       content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!"
@@ -37,13 +37,16 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300..700&display=swap"
       rel="stylesheet"
     />
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
-      <img src="./bg/banner.jpg" alt="Banner" class="banner-image" />
+      <img src="./bg/titha_banner.png" alt="Banner" class="banner-image" />
     </header>
-
-    
 
     <div class="container-wrapper">
       <main class="main-container">
@@ -55,7 +58,7 @@
       </main>
 
       <!-- konten kanan: receipt -->
-      <div class="total-container">
+      <div id="totalContainer" class="total-container">
         <h2 class="title">Pesanan Anda</h2>
         <div class="order-grid">
           <h3 class="menu-column">Menu</h3>
@@ -67,15 +70,17 @@
           <h2>Total</h2>
           <h2>Rp <span id="totalPrice">0</span></h2>
         </div>
-          <div class="payment-method">
-            <label for="paymentMethod">Pilih Metode Pembayaran:</label>
-            <select id="paymentMethod" name="paymentMethod">
-              <option value="Transfer">Transfer</option>
-              <option value="COD">COD</option>
-            </select>
-          </div>
-        
-          <button id="editUserInfoButton" class="edit-info-button">Ubah Identitas Pemesan?</button>
+        <div class="payment-method">
+          <label for="paymentMethod">Pilih Metode Pembayaran:</label>
+          <select id="paymentMethod" name="paymentMethod">
+            <!-- <option value="Transfer">Transfer</option> -->
+            <option value="COD">COD</option>
+          </select>
+        </div>
+
+        <button id="editUserInfoButton" class="edit-info-button">
+          Ubah Identitas Pemesan?
+        </button>
 
         <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank"
           >Kirim Pesanan via WhatsApp</a
@@ -83,36 +88,51 @@
       </div>
     </div>
 
-    <div class="total-summary">
-      <span class="total-items">Total Barang: <span id="totalItems">0</span></span>
-      <span class="total-price">Total Harga: Rp <span id="totalPrice">0</span></span>
+    <div class="total-summary" id="totalSummary">
+      <div class="total-summary-content">
+        <div class="right">
+          <span class="total-items"><span id="totalItems">0</span> Item</span>
+        </div>
+        <div class="left">
+          <span class="total-price">Rp <span id="totalPrice">0</span></span>
+          <div class="checkout-icon">
+            <i class="fa-solid fa-basket-shopping"></i>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
     <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
       <div class="modal-content">
-        <img src="./bg/banner.jpg" alt="" />
+        <img src="./bg/titha_banner.png" alt="" />
         <h2 id="modalTitle">Masukkan Informasi Anda</h2>
 
         <!-- Input Nama -->
         <div class="input-group">
-          <input type="text" id="name" required>
-          <label for="name" style="font-size: 16px;">Nama</label>
-      </div>
+          <input type="text" id="name" required />
+          <label for="name" style="font-size: 16px">Nama</label>
+        </div>
 
         <!-- Input Nomor Whatsapp -->
         <div class="input-group">
-          <input type="text" id="whatsapp" required>
-          <label for="whatsapp" style="font-size: 16px;">Nomor WhatsApp</label>
-      </div>
+          <input type="text" id="whatsapp" required />
+          <label for="whatsapp" style="font-size: 16px">Nomor WhatsApp</label>
+        </div>
         <!-- Input Alamat -->
         <div class="input-group">
-          <input type="text" id="address" required>
-          <label for="address" style="font-size: 16px;">Alamat</label>
-      </div>
+          <input type="text" id="address" required />
+          <label for="address" style="font-size: 16px">Alamat</label>
+        </div>
         <button id="buttonsimpaninfouser" class="save-button">Simpan</button>
 
-        <button id="buttonbatalinfouser" class="cancel-button" style="display: none;">Batal</button>
+        <button
+          id="buttonbatalinfouser"
+          class="cancel-button"
+          style="display: none"
+        >
+          Batal
+        </button>
       </div>
     </div>
 
@@ -130,5 +150,14 @@
     </footer>
 
     <script src="script.js" type="module"></script>
+    <script>
+      document
+        .getElementById("totalSummary")
+        .addEventListener("click", function () {
+          document
+            .getElementById("totalContainer")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
   </body>
 </html>

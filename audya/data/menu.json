@@ -1,61 +1,61 @@
 [
     {
         "id": "1",
-        "name": "Pecel Lele + Nasi / Porsi",
+        "name": "Pecel Lele + Nasi",
         "price": 16000,
         "image": "pecellelenasi.jpg"
     },
     {
         "id": "2",
-        "name": "Pecel Ayam + Nasi / Porsi",
+        "name": "Pecel Ayam + Nasi",
         "price": 18000,
         "image": "pecelayamnasi.jpg"
     },
     {
         "id": "3",
-        "name": "Pecel Ayam / Pc",
+        "name": "Pecel Ayam",
         "price": 13000,
         "image": "ayam.jpg"
     },
     {
         "id": "4",
-        "name": "Pecel Lele / Pc",
+        "name": "Pecel Lele",
         "price": 11000,
         "image": "lele.jpg"
     },
     {
         "id": "5",
-        "name": "Ati Ampela / Pc",
+        "name": "Ati Ampela",
         "price": 4000,
         "image": "atiampela.jpg"
     },
     {
         "id": "6",
-        "name": "Nasi / Pc",
+        "name": "Nasi",
         "price": 5000,
         "image": "nasi.jpg"
     },
     {
         "id": "7",
-        "name": "Usus / Pc",
+        "name": "Usus",
         "price": 1000,
         "image": "usus.jpg"
     },
     {
         "id": "8",
-        "name": "Tahu / Pc",
+        "name": "Tahu",
         "price": 1000,
         "image": "tahu.jpg"
     },
     {
         "id": "9",
-        "name": "Tempe / Pc",
+        "name": "Tempe",
         "price": 1000,
         "image": "tempegoreng.jpg"
     },
     {
         "id": "10",
-        "name": "Kulit / Pc",
+        "name": "Kulit",
         "price": 1000,
         "image": "kulit.jpg"
     }

@@ -67,72 +67,91 @@ h3 {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px 10px;
-    /* Mengatur gap antara baris dan kolom */
     margin-bottom: 20px;
 }
 
 .menu-grid .menu-item {
-    background-color: #fff;
+    background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 250px;
-}
-
-/* Card Produk */
-.menu-grid .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek shadow tipis */
-    border-radius: 10px; /* Membuat sudut kartu lebih halus */
-    padding: 10px;
-    background-color: #fff;
-    transition: transform 0.2s; /* Efek animasi saat hover */
-}
-
-.menu-grid .card:hover {
-    transform: translateY(-5px); /* Sedikit terangkat saat di-hover */
-}
-
-.menu-grid .card img {
-    border-radius: 8px; /* Membuat gambar dalam kartu sedikit rounded */
-}
-
-/* Tombol +/- */
-.menu-grid .card .quantity-control button {
-    width: 30px; /* Memperkecil ukuran tombol */
-    height: 30px;
-    font-size: 16px;
-    border-radius: 50%; /* Membuat tombol bulat */
-    color: #fff;
-    border: none;
-    transition: background-color 0.3s;
-}
-
-.menu-grid .card .quantity-control button:hover {
-    background-color: #45a049; /* Warna saat di-hover */
-}
-
-.menu-grid .menu-item button {
-    background-color: #A3D2CA; /* Warna hijau pastel */
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 5px;
-}
-
-.menu-item {
-    background-color: #f9f9f9;
     padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    transition: transform 0.2s;
 }
 
+.menu-grid .menu-item:hover {
+    transform: translateY(-5px); /* Sedikit terangkat saat di-hover */
+}
+
+.menu-grid .menu-item img {
+    width: 100%;
+    height: 150px; /* Tentukan tinggi gambar */
+    object-fit: cover; /* Agar gambar memenuhi area dan dipotong jika lebih besar */
+    border-radius: 10px;
+}
+
+.menu-grid .menu-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.menu-grid .menu-item p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.menu-grid .menu-item .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.menu-grid .menu-item .quantity-control {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.menu-grid .menu-item .quantity-control button {
+    width: 30px; /* Ukuran tombol +/- */
+    height: 30px;
+    font-size: 16px;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+    background-color: #A3D2CA; /* Warna hijau pastel */
+    transition: background-color 0.3s;
+}
+
+.menu-grid .menu-item .quantity-control button:hover {
+    background-color: #45a049; /* Warna saat di-hover */
+}
+
+.menu-grid .menu-item button {
+    background-color: #A3D2CA;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-grid .menu-item button:hover {
+    background-color: #45a049;
+}
+
+
+.menu-info {
+    padding: 10px;
+}
 
 .menu-footer {
     display: flex;
@@ -148,6 +167,14 @@ h3 {
     /* Beri jarak antara harga dan kuantitas */
     font-size: 16px;
     /* Sesuaikan ukuran font jika diperlukan */
+    font-weight: bold;
+}
+
+.price-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .quantity-controls {
@@ -171,6 +198,18 @@ h3 {
 
 .qty-btn:hover {
     background-color: #ccc;
+}
+
+.name-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-name {
+    font-size: 1rem;
+    flex: 1;
+    text-align: left;
 }
 
 .quantity-controls input[type="number"] {
@@ -398,6 +437,7 @@ h3 {
 .payment-method {
     margin-left: 20px;
     /* Jarak antara Total dan Pilih Metode Pembayaran */
+    margin-bottom: 20px;
 }
 
 .centered-text {

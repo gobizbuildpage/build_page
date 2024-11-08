@@ -11,23 +11,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Meta Tags for Open Graph -->
-    <meta property="og:title" content="Pasakan Ambu" />
-    <meta property="og:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!" />
+    <meta property="og:title" content="Caturi Mango" />
+    <meta property="og:description" content="Nikmati berbagai pilihan menu minuman segar di Casturi Mango." />
     <meta property="og:image" content="./bg/gambar.jpg" />
     <meta property="og:url" content="./page" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Pasakan Ambu" />
+    <meta property="og:site_name" content="Casturi Mango" />
 
     <!-- Meta Tags for Twitter (Optional) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pasakan Ambu">
-    <meta name="twitter:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!">
+    <meta name="twitter:title" content="Casturi Mango">
+    <meta name="twitter:description" content="Nikmati berbagai pilihan menu minuman segar di Casturi Mango">
     <meta name="twitter:image" content="./page/bg/gambar.jpg">
 </head>
 <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Kapten Sarwono, Banjaran</li>
+            <li><i class="fas fa-star"></i> Rating: 4.5/5</li>
+            <li>
+                <input type="text" id="searchBar" placeholder="Cari menu..." class="search-bar">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </li>
+        </ul>
+    </nav>
+
     <header class="header">
         <img src="./bg/banner1.jpg" alt="Banner" class="banner-image">
     </header>
+
     <main class="main-container">
         <h2>Form Pemesanan</h2>
         <div class="menu-grid" id="menu-container">
@@ -49,20 +62,21 @@
         </div>
     </main>
 
-    <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
         <div class="modal-content">
+            <!-- Menambahkan ikon gambar -->
+            <img src="bg/banner1.jpg" alt="Icon" class="modal-icon">
             <h2>Masukkan Informasi Anda</h2>
-            <label for="name">Nama:</label>
+            <label for="name">Nama</label>
             <input type="text" id="name" placeholder="Masukkan nama Anda">
-            <label for="whatsapp">Nomor WhatsApp:</label>
+            <label for="whatsapp">Nomor WhatsApp</label>
             <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp">
-            <label for="address">Alamat:</label>
+            <label for="address">Alamat</label>
             <input type="text" id="address" placeholder="Masukkan alamat Anda">
             <button id="buttonsimpaninfouser">Simpan</button>
         </div>
     </div>
-
+    
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-logo">

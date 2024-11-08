@@ -74,21 +74,31 @@ function getCookie(cname) {
 
 function renderMenu(menuItems) {
     const menuGrid = document.getElementById('menuGrid');
+    menuGrid.innerHTML = ''; // Bersihkan elemen menuGrid sebelum menambahkan item baru
+
     menuItems.forEach(item => {
         const menuItem = document.createElement('div');
         menuItem.className = 'menu-item';
+        
+        // Struktur HTML untuk setiap item menu
         menuItem.innerHTML = `
-            <h3>${item.name}</h3>
             <img src="./menu/${item.image}" alt="${item.name}" class="menu-image">
-            <div class="menu-footer">
-                <p class="price">Rp ${item.price.toLocaleString()}</p>
-                <div class="quantity-controls">
-                    <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
-                    <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
-                    <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
+            <div class="menu-info">
+                <div class="price-quantity">
+                    <p class="price">Rp ${item.price.toLocaleString()}</p>
+                    <div class="quantity-controls">
+                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
+                        <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
+                        <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
+                    </div>
+                </div>
+                <div class="name-button">
+                    <h3 class="product-name">${item.name}</h3>
                 </div>
             </div>
         `;
+        
+        // Menambahkan item ke dalam menu grid
         menuGrid.appendChild(menuItem);
     });
 }
@@ -108,7 +118,7 @@ function calculateTotal() {
     const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
     let orders = [];
-    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 7750878347\nNedi Sopian";
+    const rek = "Pembayaran akan dilakukan dengan COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
@@ -143,7 +153,7 @@ document.getElementById('whatsappLink').addEventListener('click', function (even
     event.preventDefault();
 
     const paymentMethod = document.getElementById('paymentMethod').value; // Ambil metode pembayaran yang dipilih
-    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 2820321726\nKiki Santi Noviana";
+    const rek = "Pembayaran akan dilakukan dengan COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
@@ -163,7 +173,7 @@ document.getElementById('whatsappLink').addEventListener('click', function (even
         }
     });
 
-    let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan metode COD.";
+    let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan COD.";
 
     const message = `Saya ingin memesan:\n${orders.map(order => `${order.name} x${order.quantity} - Rp ${order.price.toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${paymentInfo}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
     const whatsappUrl = `https://wa.me/6285607253198?text=${encodeURIComponent(message)}`;

@@ -132,10 +132,14 @@ function renderMenu(menuItems) {
         `;
         menuGrid.appendChild(menuItem);
     });
-} 
+}
 
 
 // Fungsi untuk menampilkan atau menyembunyikan quantity controls ketika tombol "Add" diklik
+// Objek untuk menyimpan data pesanan
+const orderData = {};
+
+// Fungsi untuk menampilkan atau menyembunyikan quantity controls ketika tombol "Tambah" diklik
 window.toggleButton = function (index, price) {
     const addButton = document.getElementById(`btn${index}`);
     const qtyControl = document.getElementById(`qtyControl${index}`);
@@ -145,23 +149,16 @@ window.toggleButton = function (index, price) {
         addButton.style.display = 'none';
         qtyControl.style.display = 'flex';
         qtyInput.value = 1; // Set nilai awal menjadi 1
-        calculateTotal(); // Hitung total setelah tombol "Add" diklik
+        updateOrderList(`qty${index}`); // Update daftar pesanan langsung saat tombol "Tambah" diklik
+        calculateTotal(); // Hitung total setelah tombol "Tambah" diklik
     } else {
         addButton.style.display = 'block';
         qtyControl.style.display = 'none';
         qtyInput.value = 0; // Reset quantity ke 0
-        calculateTotal(); // Hitung ulang total setelah tombol "Add" diklik lagi
+        updateOrderList(`qty${index}`); // Perbarui daftar pesanan
+        calculateTotal(); // Hitung ulang total setelah tombol "Tambah" diklik lagi
     }
 };
-
-
-window.changeQuantity = function (id, price, delta) {
-    const qtyInput = document.getElementById(id);
-    const currentValue = parseInt(qtyInput.value) || 0;
-    qtyInput.value = Math.max(0, currentValue + delta);
-    calculateTotal();
-}
-
 
 // Fungsi untuk mengubah quantity
 window.changeQuantity = function (id, price, delta) {
@@ -172,48 +169,73 @@ window.changeQuantity = function (id, price, delta) {
     // Jika quantity menjadi 0, kembali ke kondisi awal
     if (qtyInput.value == 0) {
         toggleButton(parseInt(id.replace("qty", "")), price);
+    } else {
+        updateOrderList(id); // Update daftar pesanan dengan item yang diklik
     }
     
-    calculateTotal();
+    calculateTotal(); // Hitung ulang total
 }
 
-// Fungsi untuk menghitung total harga dan menampilkan pesanan
+// Fungsi untuk memperbarui daftar pesanan hanya dengan item yang diklik
+function updateOrderList(id) {
+    const qtyInput = document.getElementById(id);
+    const quantity = parseInt(qtyInput.value) || 0;
+    const price = parseInt(qtyInput.getAttribute('data-price')) || 0;
+    const name = qtyInput.getAttribute('data-name');
+
+    // Perbarui atau hapus item di orderData berdasarkan quantity
+    if (quantity > 0) {
+        orderData[name] = {
+            quantity: quantity,
+            price: price
+        };
+    } else {
+        delete orderData[name];
+    }
+
+    // Tampilkan pesanan di UI
+    renderOrderList();
+}
+
+// Fungsi untuk menampilkan seluruh daftar pesanan
+function renderOrderList() {
+    const orderList = document.getElementById('orderList');
+    orderList.innerHTML = ''; // Kosongkan daftar sebelum memperbarui
+
+    for (const name in orderData) {
+        const order = orderData[name];
+        const li = document.createElement('li');
+        li.innerText = `${name} x${order.quantity} - Rp ${(order.quantity * order.price).toLocaleString()}`;
+        orderList.appendChild(li);
+    }
+}
+
+// Fungsi untuk menghitung total harga
 function calculateTotal() {
-    const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
-    let orders = [];
+
+    for (const name in orderData) {
+        const order = orderData[name];
+        total += order.quantity * order.price;
+    }
+
+    document.getElementById('totalPrice').innerText = total.toLocaleString();
+
+    // Update link WhatsApp dengan pesan yang sesuai
+    const orders = Object.entries(orderData).map(
+        ([name, order]) => `${name} x${order.quantity} - Rp ${(order.quantity * order.price).toLocaleString()}`
+    );
+
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
 
-    inputs.forEach(input => {
-        const quantity = parseInt(input.value) || 0;
-        const price = parseInt(input.getAttribute('data-price')) || 0;
-        const name = input.getAttribute('data-name');
-
-        // Hanya tambahkan item ke total dan daftar pesanan jika quantity lebih dari 0
-        if (quantity > 0) {
-            total += quantity * price;
-            orders.push(`${name} x${quantity} - Rp ${(quantity * price).toLocaleString()}`);
-        }
-    });
-
-   // Perbarui total harga dan daftar pesanan di UI
-   document.getElementById('totalPrice').innerText = total.toLocaleString();
-
-   const orderList = document.getElementById('orderList');
-   orderList.innerHTML = '';
-   orders.forEach(order => {
-       const li = document.createElement('li');
-       li.innerText = order;
-       orderList.appendChild(li);
-   });
-
-    // Update link WhatsApp dengan pesan yang sesuai
     const whatsappLink = document.getElementById('whatsappLink');
-    const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${rek}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
-    whatsappLink.href = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
+    const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
+    whatsappLink.href = `https://wa.me/6283866450950?text=${encodeURIComponent(message)}`;
 }
+
+
 function handleOrderSubmission(event) {
     event.preventDefault();
 
@@ -240,7 +262,7 @@ function handleOrderSubmission(event) {
     let paymentInfo = paymentMethod === "Transfer" ? rek : "Pembayaran akan dilakukan dengan metode COD.";
 
     const message = `Saya ingin memesan:\n${orders.map(order => `${order.name} x${order.quantity} - Rp ${order.price.toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${paymentInfo}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
-    const whatsappUrl = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/6283866450950?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, '_blank');
 
