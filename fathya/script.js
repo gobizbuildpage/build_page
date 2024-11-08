@@ -174,7 +174,7 @@ function calculateTotal() {
     // Update WhatsApp link
     const whatsappLink = document.getElementById('whatsappLink');
     const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${rek}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
-    whatsappLink.href = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
+    whatsappLink.href = `https://wa.me/6281321079020?text=${encodeURIComponent(message)}`;
 }
 
 
