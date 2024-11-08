@@ -6,41 +6,54 @@
     <title>Cart - Logic Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/build_page/sindy/css/cart.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kTc2KwCknSj6iPK4rVnl2lCk4ABaCKKkJ4eI94Gz4E15QddYkPGI+Irqk/W2HgTYYwR3RF8r5x5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <header>
-        <span class="logo">Logic Coffee</span>
-        <nav>
-            <a href="/index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="#footer">Contact</a>
-            <a href="cart.html">Cart</a>
-        </nav>
+        <div class="container">
+            <span class="logo">Logic Coffee</span>
+            <nav>
+                <a href="/index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="#footer">Contact</a>
+                <a href="cart.html" class="active">Cart</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="cart-container">
-        <h2>Your Cart</h2>
+    <main>
+        <div class="cart-container">
+            <h2>Your Cart</h2>
 
-        <!-- Select All Checkbox -->
-        <div class="select-all-container">
-            <input type="checkbox" id="selectAll" onclick="toggleSelectAll()">
-            <label for="selectAll">Select All</label>
+            <!-- Select All Checkbox -->
+            <div class="select-all-container">
+                <input type="checkbox" id="selectAll" onclick="toggleSelectAll()">
+                <label for="selectAll">Select All</label>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be generated here by JavaScript -->
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span class="total-label">Total:</span>
+                    <span class="total-amount" id="totalAmount">Rp 0</span>
+                </div>
+                <a href="checkout.html">
+                    <button class="checkout-btn">Proceed to Checkout <i class="fas fa-arrow-right"></i></button>
+                </a>
+            </div>
         </div>
+    </main>
 
-        <div class="cart-items" id="cartItems">
-            <!-- Cart items will be generated here by JavaScript -->
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2024 Logic Coffee. All rights reserved.</p>
         </div>
-
-        <div class="cart-total">
-            <span class="total-label">Total:</span>
-            <span class="total-amount" id="totalAmount">Rp 0</span>
-        </div>
-
-        <a href="checkout.html">
-            <button class="checkout-btn">Proceed to Checkout</button>
-        </a>
-    </div>
+    </footer>
 
     <script>
         // Function to render cart items and handle selection
@@ -52,6 +65,13 @@
 
             cartItemsContainer.innerHTML = ''; // Clear previous items
 
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+                totalAmountElement.textContent = 'Rp 0';
+                document.getElementById('selectAll').checked = false;
+                return;
+            }
+
             cart.forEach(item => {
                 // Ensure item has a quantity
                 if (!item.quantity) {
@@ -62,19 +82,22 @@
                 cartItem.classList.add('cart-item');
                 cartItem.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
-                    <div class="item-info">
+                    <div class="item-details">
                         <h4>${item.name}</h4>
-                        <p>Price: Rp ${item.price}</p>
+                        <p>Price: Rp ${parseInt(item.price.replace(/\D/g, '')).toLocaleString()}</p>
+                        <div class="quantity-control">
+                            <button onclick="updateQuantity('${item.name}', 'decrease')"><i class="fas fa-minus"></i></button>
+                            <input type="number" value="${item.quantity}" min="1" id="quantity_${item.name}" onchange="updateQuantity('${item.name}', 'manual')">
+                            <button onclick="updateQuantity('${item.name}', 'increase')"><i class="fas fa-plus"></i></button>
+                        </div>
                     </div>
-                    <div class="quantity">
-                        <button onclick="updateQuantity('${item.name}', 'decrease')">-</button>
-                        <input type="number" value="${item.quantity}" min="1" id="quantity_${item.name}" onchange="updateQuantity('${item.name}', 'manual')">
-                        <button onclick="updateQuantity('${item.name}', 'increase')">+</button>
+                    <div class="item-actions">
+                        <label>
+                            <input type="checkbox" class="item-select" data-item="${item.name}" ${item.selected ? 'checked' : ''} onchange="updateSelection('${item.name}')">
+                            Select
+                        </label>
+                        <button class="remove-btn" onclick="removeFromCart('${item.name}')"><i class="fas fa-trash-alt"></i> Remove</button>
                     </div>
-                    <div>
-                        <input type="checkbox" class="item-select" data-item="${item.name}" ${item.selected ? 'checked' : ''} onchange="updateSelection('${item.name}')"> Select
-                    </div>
-                    <button class="remove-btn" onclick="removeFromCart('${item.name}')">Remove</button>
                 `;
                 cartItemsContainer.appendChild(cartItem);
 
@@ -85,6 +108,7 @@
             });
 
             totalAmountElement.textContent = `Rp ${totalAmount.toLocaleString()}`;
+            updateSelectAllCheckbox();
             localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
         }
 
@@ -109,9 +133,9 @@
 
         // Remove item from cart
         function removeFromCart(itemName) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const updatedCart = cart.filter(item => item.name !== itemName);
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== itemName);
+            localStorage.setItem('cart', JSON.stringify(cart));
             renderCart();
         }
 
@@ -142,8 +166,15 @@
             renderCart();
         }
 
+        // Update Select All checkbox based on individual selections
+        function updateSelectAllCheckbox() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const allSelected = cart.length > 0 && cart.every(item => item.selected);
+            document.getElementById('selectAll').checked = allSelected;
+        }
+
         // Initial render
-        renderCart();
+        document.addEventListener('DOMContentLoaded', renderCart);
     </script>
 </body>
 </html>
