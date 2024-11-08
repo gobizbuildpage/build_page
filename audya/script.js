@@ -118,7 +118,7 @@ function calculateTotal() {
     const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
     let orders = [];
-    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 7750878347\nNedi Sopian";
+    const rek = "Pembayaran akan dilakukan dengan metode COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
@@ -153,7 +153,7 @@ document.getElementById('whatsappLink').addEventListener('click', function (even
     event.preventDefault();
 
     const paymentMethod = document.getElementById('paymentMethod').value; // Ambil metode pembayaran yang dipilih
-    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 2820321726\nKiki Santi Noviana";
+    const rek = "Pembayaran akan dilakukan dengan metode COD";
     const userName = getCookie("name");
     const userWhatsapp = getCookie("whatsapp");
     const userAddress = getCookie("address");
