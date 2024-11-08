@@ -94,7 +94,6 @@ function renderMenu(menuItems) {
                 </div>
                 <div class="name-button">
                     <h3 class="product-name">${item.name}</h3>
-                    <button type="button" class="add-button" onclick="addToOrder('${item.id}', '${item.name}', ${item.price})">Tambah</button>
                 </div>
             </div>
         `;
